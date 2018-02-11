@@ -16,6 +16,8 @@
 		7BD97B1920274BE400B2D13A /* TPJsonObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD97B1820274BE400B2D13A /* TPJsonObject.swift */; };
 		7BD97B1B2027741200B2D13A /* TPJsonProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD97B1A2027741200B2D13A /* TPJsonProcessor.swift */; };
 		7BD97B1D202B3D7600B2D13A /* TPClassInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD97B1C202B3D7600B2D13A /* TPClassInfo.swift */; };
+		7BD97B2B20306F9700B2D13A /* TPHandyJsonParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD97B2A20306F9700B2D13A /* TPHandyJsonParser.swift */; };
+		7BD97B2E2030765100B2D13A /* String_extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD97B2D2030765100B2D13A /* String_extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +54,8 @@
 		7BD97B1820274BE400B2D13A /* TPJsonObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPJsonObject.swift; sourceTree = "<group>"; };
 		7BD97B1A2027741200B2D13A /* TPJsonProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPJsonProcessor.swift; sourceTree = "<group>"; };
 		7BD97B1C202B3D7600B2D13A /* TPClassInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPClassInfo.swift; sourceTree = "<group>"; };
+		7BD97B2A20306F9700B2D13A /* TPHandyJsonParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPHandyJsonParser.swift; sourceTree = "<group>"; };
+		7BD97B2D2030765100B2D13A /* String_extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String_extension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,8 +141,18 @@
 				7BD97B1820274BE400B2D13A /* TPJsonObject.swift */,
 				7BD97B1A2027741200B2D13A /* TPJsonProcessor.swift */,
 				7BD97B1C202B3D7600B2D13A /* TPClassInfo.swift */,
+				7BD97B2A20306F9700B2D13A /* TPHandyJsonParser.swift */,
+				7BD97B2C2030761E00B2D13A /* Extension */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		7BD97B2C2030761E00B2D13A /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				7BD97B2D2030765100B2D13A /* String_extension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -277,8 +291,10 @@
 				7BD97AEE2027246100B2D13A /* ViewController.swift in Sources */,
 				7BD97B1920274BE400B2D13A /* TPJsonObject.swift in Sources */,
 				7BD97B1B2027741200B2D13A /* TPJsonProcessor.swift in Sources */,
+				7BD97B2B20306F9700B2D13A /* TPHandyJsonParser.swift in Sources */,
 				7BD97B1D202B3D7600B2D13A /* TPClassInfo.swift in Sources */,
 				7BD97AEC2027246100B2D13A /* AppDelegate.swift in Sources */,
+				7BD97B2E2030765100B2D13A /* String_extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

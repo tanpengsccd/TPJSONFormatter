@@ -721,7 +721,7 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <size key="minSize" width="798" height="498"/>
-                                            <size key="maxSize" width="798" height="10000000"/>
+                                            <size key="maxSize" width="800" height="10000000"/>
                                             <attributedString key="textStorage">
                                                 <fragment>
                                                     <mutableString key="content">{
@@ -729,13 +729,13 @@
     "id": "file",
     "value": "File",
     "double": 22.22,
-    "int" : 20,
-    "boolean" : true,
-
+    "int": 20,
+    "boolean": true,
     "sdouble": "22.22",
-    "sint" : "20",
-    "sboolean" : "true",
+    "sint": "20",
+    "sboolean": "true",
     "popup": {
+      "items":[],
       "menuitem": [
         {
           "value": "New",

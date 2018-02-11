@@ -56,7 +56,7 @@ class TPJsonProcessor {
                 
                 
             }
-            return TPJsonModel.arrays(lastJsonValue!)
+            return TPJsonModel.arrays(lastJsonValue)
         }else if let _ = value as? Bool{
                 return TPJsonModel.simpleValue(.bool)
             
@@ -86,3 +86,7 @@ class TPJsonProcessor {
         }
     }
 }
+
+
+
+

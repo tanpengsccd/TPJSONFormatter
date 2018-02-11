@@ -11,8 +11,8 @@ struct TPClassInfo {
     
     indirect enum ClassKind{
         enum RecombinationClassKind {
-            case array(class:TPClassInfo)
-            case customClass(customClass:[TPClassInfo])
+            case array(arrayClass:TPClassInfo?)
+            case customClass(classes:[TPClassInfo])
         }
         case bool 
         case double
@@ -22,5 +22,7 @@ struct TPClassInfo {
     }
     var name: String?
     var id:String
+    var isOptional:Bool?
     var properties: ClassKind
 }
+
