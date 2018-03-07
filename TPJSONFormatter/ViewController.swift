@@ -46,12 +46,19 @@ class ViewController: NSViewController {
                     print("---json---")
                     print(json)
                     
-                    if let classInfo = try TPClassInfo.result(id: "a", name: "root", jsonValue: json){
+                    if let classInfo = try TPClassInfo.result(id: "a", name: "root", jsonValue: json, isOptional: false, isArrayInitial:true){
                         print("---classInfo---")
                         print(classInfo)
                         let handyJson = TPJsonParser.parse(classInfo: classInfo , jsonParseKind: .HandyJson)
                         print("---handyJson---")
-                        print(handyJson)
+                        switch handyJson{
+                            
+                        case .classDefines(let str):
+                            print(str)
+                        case .variableDeclare(let str):
+                            print(str)
+                        }
+                        
                         //输出 文本
 
                     }

@@ -11,11 +11,17 @@ enum TPJsonParserKind {
     case `default`
     case HandyJson
 }
+enum TPJsonParserString{
+    case classDefines(String)
+    case variableDeclare(String)
+}
 class TPJsonParser{
-    class func parse(classInfo:TPClassInfo,jsonParseKind:TPJsonParserKind ,ignoreVar:Bool = false) -> String{ // 数组需要忽略 定义 类型
+    class func parse(classInfo:TPClassInfo,jsonParseKind:TPJsonParserKind ,ignoreVar:Bool = false) -> TPJsonParserString{ //ignoreVar 用于 数组需要忽略 定义 类型 ，如 忽略 var array:ARRAY
         
         var classDefines = ""
-        let head = "var \(classInfo.name ?? classInfo.id) :"
+        var variableDeclare:String = ""
+        
+         variableDeclare.append("var \(classInfo.name ?? classInfo.id)")
         let type:String = {
             switch classInfo.properties {
             case .bool:
@@ -33,8 +39,17 @@ class TPJsonParser{
                 switch recombination{
                 case .array(let arrayClass):
                     if let arrayClass = arrayClass{
-                    
-                        classDefines +=  parse(classInfo: arrayClass , jsonParseKind: jsonParseKind,ignoreVar : true)
+                        let subJsonParserString = parse(classInfo: arrayClass , jsonParseKind: jsonParseKind,ignoreVar : true)
+                        switch subJsonParserString{
+                            
+                        case .classDefines(let subClassDefines):
+                            classDefines += subClassDefines
+                        case .variableDeclare(let subVariableDeclares):
+                            variableDeclare += subVariableDeclares
+                            
+                            
+                        }
+                        
                         
                     }else{
                         switch jsonParseKind{
@@ -58,13 +73,22 @@ class TPJsonParser{
                         classDefines += "class \(classInfoName) : HandyJSON { \n"
                     }
                     
-
+                    var subClassDefines = ""
+                    var subVariableDeclares = ""
                     for classInfoIn in classes {
-
-                        classDefines += parse(classInfo: classInfoIn ,jsonParseKind:jsonParseKind )
+                        let subJsonParserString = parse(classInfo: classInfoIn ,jsonParseKind:jsonParseKind )
+                        switch subJsonParserString{
+                            
+                        case .classDefines(let subClassDefine):
+                            subClassDefines += subClassDefine
+                        case .variableDeclare(let subVariableDeclare):
+                            subVariableDeclares += subVariableDeclare
+                        }
+                        
+//                        classDefines += parse(classInfo: classInfoIn ,jsonParseKind:jsonParseKind )
 
                     }
-                    
+                    classDefines += ( subClassDefines + subVariableDeclares)
                     switch jsonParseKind {
                     case .default:
                         classDefines += "}\n"
@@ -82,19 +106,25 @@ class TPJsonParser{
         }()
         
 
-        let isOptionalString:String  = {
+//        let isOptionalString:String  = {
             if let isOptional = classInfo.isOptional, !isOptional{
-                return "!"
+                variableDeclare  += " = " + type +  "()"
             }else{
-                return "?"
+                variableDeclare  += " : " + type + "?"
             }
 
-        }()
+//        }()
+        //        return classDefines + (ignoreVar ? "" : head + type + isOptionalString) + "\n" //这里 数组需要忽略 定义 类型
         
-        
-        return classDefines + (ignoreVar ? "" : head + type + isOptionalString) + "\n" //这里 数组需要忽略 定义 类型
+        if classDefines.count > 0{
+            return TPJsonParserString.classDefines(classDefines + (ignoreVar ? "" : variableDeclare) + "\n")
+        }else{
+            return TPJsonParserString.variableDeclare(variableDeclare  + "\n")
+        }
+
 
     }
     
 }
+
 
