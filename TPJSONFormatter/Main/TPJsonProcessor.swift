@@ -88,51 +88,30 @@ class TPJsonProcessor {
 }
 
 class Root{
-    class Servicepool{
-        var f_name :String?
-        var f_code :String?
+    class Menu{
+        var sint :Int?
+        var value :String?
+        var double :Double?
+        var id :String?
+        var sboolean :Bool?
+        var boolean :Int?
+        var sdouble :Double?
+        class Popup{
+            class Items {
+            }
+            var items :[Items]?
+            class Menuitem{
+                var onclick :String?
+                var value :String?
+            }
+            
+            var menuitem :[Menuitem]?
+            var detail :String?
+        }
+        var popup :Popup?
+        var int :Int?
     }
-    
-    var servicePool :[Servicepool]?
-    class Fundpool{
-        var f_name :String?
-        var f_code :String?
-    }
-    
-    var fundPool :[Fundpool]?
-    var error :Int?
-    class Datas{
-        var f_org_id :Int?
-        var f_usergroup_id :Int?
-        var f_password :String?
-        var f_user_code :Int?
-        var f_birth_date :String?
-        var f_user_id :Int?
-        var f_rank :Int?
-        var f_mobile :String?
-        var f_real_name :String?
-        var f_salt :String?
-        var f_validation_type :String?
-        var f_validation_key :String?
-        var f_theme :String?
-        var f_gender :String?
-        var f_type :Int?
-        var f_email :String?
-        var f_image :String?
-        var f_username :String?
-        var f_status :Int?
-    }
-    
-    var datas :[Datas]?
-    class Material{
-        var f_name :String?
-        var f_code :String?
-    }
-    
-    var material :[Material]?
-    var errormsg :String?
+    var menu :Menu?
 }
-
-
 
 

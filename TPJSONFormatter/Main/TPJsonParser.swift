@@ -7,9 +7,13 @@
 //
 
 import Foundation
-
-class TPHandyJsonParser{
-    class func parse(classInfo:TPClassInfo ,ignoreVar:Bool = false) -> String{ // 数组需要忽略 定义 类型
+enum TPJsonParserKind {
+    case `default`
+    case HandyJson
+}
+class TPJsonParser{
+    class func parse(classInfo:TPClassInfo,jsonParseKind:TPJsonParserKind ,ignoreVar:Bool = false) -> String{ // 数组需要忽略 定义 类型
+        
         var classDefines = ""
         let head = "var \(classInfo.name ?? classInfo.id) :"
         let type:String = {
@@ -30,23 +34,44 @@ class TPHandyJsonParser{
                 case .array(let arrayClass):
                     if let arrayClass = arrayClass{
                     
-                        classDefines +=  parse(classInfo: arrayClass,ignoreVar : true)
+                        classDefines +=  parse(classInfo: arrayClass , jsonParseKind: jsonParseKind,ignoreVar : true)
                         
                     }else{
-                        classDefines += "class \(classInfoName) {\n}\n"
+                        switch jsonParseKind{
+                            
+                        case .default:
+                            classDefines += "class \(classInfoName) {\n}\n"
+                        case .HandyJson:
+                            classDefines += "class \(classInfoName) : HandyJSON {\nrequired init(){}\n}\n"
+                        }
+                        
                     }
                     
                     typeString = "[\(classInfoName)]"
                     
                 case .customClass(let classes):
-                    classDefines += "class \(classInfoName){ \n"
+                    switch jsonParseKind{
+                        
+                    case .default:
+                        classDefines += "class \(classInfoName){ \n"
+                    case .HandyJson:
+                        classDefines += "class \(classInfoName) : HandyJSON { \n"
+                    }
+                    
 
                     for classInfoIn in classes {
 
-                        classDefines += parse(classInfo: classInfoIn)
+                        classDefines += parse(classInfo: classInfoIn ,jsonParseKind:jsonParseKind )
 
                     }
-                    classDefines += "}\n"
+                    
+                    switch jsonParseKind {
+                    case .default:
+                        classDefines += "}\n"
+                    case .HandyJson:
+                        classDefines += "required init(){}\n}\n"
+                    }
+                    
                     typeString = classInfoName
                     
                 }

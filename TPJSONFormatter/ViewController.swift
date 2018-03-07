@@ -46,13 +46,15 @@ class ViewController: NSViewController {
                     print("---json---")
                     print(json)
                     
-                    let classInfo = try self.result(id: "a", name: "root", jsonValue: json)
-                    print("---classInfo---")
-                    print(classInfo)
-                    let handyJson = TPHandyJsonParser.parse(classInfo: classInfo!)
-                    print("---handyJson---")
-                    print(handyJson)
-                    //输出 文本
+                    if let classInfo = try TPClassInfo.result(id: "a", name: "root", jsonValue: json){
+                        print("---classInfo---")
+                        print(classInfo)
+                        let handyJson = TPJsonParser.parse(classInfo: classInfo , jsonParseKind: .HandyJson)
+                        print("---handyJson---")
+                        print(handyJson)
+                        //输出 文本
+
+                    }
                 }
                
                 
@@ -63,39 +65,6 @@ class ViewController: NSViewController {
             
         }
     }
-    func result(id:String  , name:String?, jsonValue:TPJsonModel? ) throws -> TPClassInfo? {
-        if let jsonValue = jsonValue {
-            var childId = 0
-            switch jsonValue {
-                
-            case .simpleValue(let value):
-                switch value{
-                case .bool:
-                    return  TPClassInfo.init(name: name, id: "\(id)_\(childId)", isOptional: nil, properties: TPClassInfo.ClassKind.bool)
-                case .double:
-                    return  TPClassInfo.init(name: name, id: "\(id)_\(childId)", isOptional: nil, properties: TPClassInfo.ClassKind.double)
-                case .int:
-                    return  TPClassInfo.init(name: name, id: "\(id)_\(childId)", isOptional: nil, properties: TPClassInfo.ClassKind.int)
-                case .string:
-                    return  TPClassInfo.init(name: name, id: "\(id)_\(childId)", isOptional: nil, properties: TPClassInfo.ClassKind.string)
-                    
-                }
-            case .properties(let properties):
-                let classInfos = try properties.map({ (jsonObject) -> TPClassInfo in
-                    
-                    let classInfo = try result(id: "\(id)_\(childId)", name: jsonObject.key, jsonValue: jsonObject.value)
-                    childId += 1
-                    return classInfo!
-                })
-                return TPClassInfo.init(name: name, id: id, isOptional: nil, properties: TPClassInfo.ClassKind.recombinationClassKind(recombination: TPClassInfo.ClassKind.RecombinationClassKind.customClass(classes: classInfos)))
-            case .arrays(let jsonModel):
-                let classInfo = try result(id: "\(id)_\(childId)", name: name, jsonValue: jsonModel  )
-                return TPClassInfo.init(name: name, id: id, isOptional: nil, properties: TPClassInfo.ClassKind.recombinationClassKind(recombination: TPClassInfo.ClassKind.RecombinationClassKind.array(arrayClass: classInfo)))
-                
-            }
-        }else{
-            return nil
-        }
-    }
+    
 }
 
