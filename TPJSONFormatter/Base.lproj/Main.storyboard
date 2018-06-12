@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14113"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -706,22 +706,22 @@
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="TPJSONFormatter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="800" height="500"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1057" height="584"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sE0-eQ-G1B">
-                                <rect key="frame" x="0.0" y="0.0" width="800" height="500"/>
+                                <rect key="frame" x="0.0" y="80" width="537" height="504"/>
                                 <clipView key="contentView" id="YGF-qz-yrn">
-                                    <rect key="frame" x="1" y="1" width="798" height="498"/>
+                                    <rect key="frame" x="1" y="1" width="520" height="502"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textView importsGraphics="NO" verticallyResizable="YES" baseWritingDirection="leftToRight" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="KEq-12-top">
-                                            <rect key="frame" x="0.0" y="0.0" width="798" height="498"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="520" height="502"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <size key="minSize" width="798" height="498"/>
-                                            <size key="maxSize" width="800" height="10000000"/>
+                                            <size key="minSize" width="520" height="502"/>
+                                            <size key="maxSize" width="1040" height="10000000"/>
                                             <attributedString key="textStorage">
                                                 <fragment>
                                                     <mutableString key="content">{
@@ -775,38 +775,80 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="HpP-xA-FH6">
-                                    <rect key="frame" x="783" y="1" width="16" height="498"/>
+                                    <rect key="frame" x="521" y="1" width="15" height="502"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="DBg-9W-QcC">
-                                <rect key="frame" x="734" y="-1" width="66" height="19"/>
-                                <buttonCell key="cell" type="roundRect" title="Proccess" bezelStyle="roundedRect" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ro3-PT-P8c">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="cellTitle"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="onProccess:" target="XfG-lQ-9wD" id="kBG-H3-Jrk"/>
-                                </connections>
-                            </button>
+                            <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LbF-al-7lN">
+                                <rect key="frame" x="537" y="80" width="520" height="504"/>
+                                <clipView key="contentView" id="IGQ-mj-cfr">
+                                    <rect key="frame" x="1" y="1" width="503" height="502"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <textView importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="BRP-4O-WPA">
+                                            <rect key="frame" x="0.0" y="0.0" width="503" height="502"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <size key="minSize" width="503" height="502"/>
+                                            <size key="maxSize" width="520" height="10000000"/>
+                                            <color key="insertionPointColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </textView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </clipView>
+                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="FKP-dU-xz4">
+                                    <rect key="frame" x="-100" y="-100" width="87" height="18"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="4s6-3O-Pi1">
+                                    <rect key="frame" x="504" y="1" width="15" height="502"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                            </scrollView>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="h1W-Qq-CzM">
+                                <rect key="frame" x="0.0" y="0.0" width="1057" height="80"/>
+                                <subviews>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="DBg-9W-QcC">
+                                        <rect key="frame" x="495" y="4" width="66" height="19"/>
+                                        <buttonCell key="cell" type="roundRect" title="Proccess" bezelStyle="roundedRect" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ro3-PT-P8c">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="cellTitle"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="onProccess:" target="XfG-lQ-9wD" id="kBG-H3-Jrk"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="KMC-aV-hYB"/>
+                                    <constraint firstItem="DBg-9W-QcC" firstAttribute="centerX" secondItem="h1W-Qq-CzM" secondAttribute="centerX" id="KbY-3U-PEw"/>
+                                    <constraint firstAttribute="bottom" secondItem="DBg-9W-QcC" secondAttribute="bottom" constant="5" id="SeS-py-mNt"/>
+                                </constraints>
+                            </customView>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="sE0-eQ-G1B" secondAttribute="trailing" id="Aqn-5y-0wg"/>
+                            <constraint firstItem="h1W-Qq-CzM" firstAttribute="top" secondItem="LbF-al-7lN" secondAttribute="bottom" id="2aT-1a-mmS"/>
+                            <constraint firstItem="h1W-Qq-CzM" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="377-Rx-GRh"/>
                             <constraint firstItem="sE0-eQ-G1B" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="Gld-7i-vbB"/>
-                            <constraint firstAttribute="bottom" secondItem="DBg-9W-QcC" secondAttribute="bottom" id="K7u-YE-PTG"/>
-                            <constraint firstAttribute="trailing" secondItem="DBg-9W-QcC" secondAttribute="trailing" id="U0x-uy-5Vy"/>
+                            <constraint firstItem="LbF-al-7lN" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="S5U-PK-dS4"/>
+                            <constraint firstAttribute="trailing" secondItem="h1W-Qq-CzM" secondAttribute="trailing" id="Wfc-NA-XIp"/>
+                            <constraint firstItem="h1W-Qq-CzM" firstAttribute="top" secondItem="sE0-eQ-G1B" secondAttribute="bottom" id="XWa-oP-ikH"/>
+                            <constraint firstItem="LbF-al-7lN" firstAttribute="leading" secondItem="sE0-eQ-G1B" secondAttribute="trailing" id="bs5-D0-hHF"/>
+                            <constraint firstAttribute="bottom" secondItem="h1W-Qq-CzM" secondAttribute="bottom" id="d9g-kh-oxj"/>
                             <constraint firstItem="sE0-eQ-G1B" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="hDQ-5j-ffL"/>
-                            <constraint firstAttribute="bottom" secondItem="sE0-eQ-G1B" secondAttribute="bottom" id="t7K-kF-zvg"/>
+                            <constraint firstItem="LbF-al-7lN" firstAttribute="width" secondItem="KEq-12-top" secondAttribute="width" id="m8G-c7-SuT"/>
+                            <constraint firstAttribute="trailing" secondItem="LbF-al-7lN" secondAttribute="trailing" id="ruc-V4-lK9"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="inputTextView" destination="KEq-12-top" id="Ls0-zU-0Rr"/>
                         <outlet property="onProccess" destination="DBg-9W-QcC" id="uck-xl-hs8"/>
-                        <outlet property="textView" destination="KEq-12-top" id="Ls0-zU-0Rr"/>
+                        <outlet property="outputTextView" destination="BRP-4O-WPA" id="Q31-CA-bDU"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="655"/>
+            <point key="canvasLocation" x="203.5" y="896"/>
         </scene>
     </scenes>
 </document>

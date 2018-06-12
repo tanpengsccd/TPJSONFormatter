@@ -7,16 +7,21 @@
 //
 
 import Foundation
-enum TPJsonParserKind {
+///解析类型 如 简单类型 ，HandyJSON
+enum TPClassParserKind {
     case `default`
     case HandyJson
 }
-enum TPJsonParserString{
+
+//解析的类型 类,属性变量
+enum TPClassParserString{
     case classDefines(String)
     case variableDeclare(String)
 }
-class TPJsonParser{
-    class func parse(classInfo:TPClassInfo,jsonParseKind:TPJsonParserKind ,ignoreVar:Bool = false) -> TPJsonParserString{ //ignoreVar 用于 数组需要忽略 定义 类型 ，如 忽略 var array:ARRAY
+
+
+class TPClassParser{
+    class func parse(classInfo:TPClassInfo,classParseKind:TPClassParserKind ,ignoreVar:Bool = false) -> TPClassParserString{ //ignoreVar 用于 数组需要忽略 定义 类型 ，如 忽略 var array:ARRAY
         
         var classDefines = ""
         var variableDeclare:String = ""
@@ -39,7 +44,7 @@ class TPJsonParser{
                 switch recombination{
                 case .array(let arrayClass):
                     if let arrayClass = arrayClass{
-                        let subJsonParserString = parse(classInfo: arrayClass , jsonParseKind: jsonParseKind,ignoreVar : true)
+                        let subJsonParserString = parse(classInfo: arrayClass , classParseKind: classParseKind,ignoreVar : true)
                         switch subJsonParserString{
                             
                         case .classDefines(let subClassDefines):
@@ -52,7 +57,7 @@ class TPJsonParser{
                         
                         
                     }else{
-                        switch jsonParseKind{
+                        switch classParseKind{
                             
                         case .default:
                             classDefines += "class \(classInfoName) {\n}\n"
@@ -65,7 +70,7 @@ class TPJsonParser{
                     typeString = "[\(classInfoName)]"
                     
                 case .customClass(let classes):
-                    switch jsonParseKind{
+                    switch classParseKind{
                         
                     case .default:
                         classDefines += "class \(classInfoName){ \n"
@@ -76,7 +81,7 @@ class TPJsonParser{
                     var subClassDefines = ""
                     var subVariableDeclares = ""
                     for classInfoIn in classes {
-                        let subJsonParserString = parse(classInfo: classInfoIn ,jsonParseKind:jsonParseKind )
+                        let subJsonParserString = parse(classInfo: classInfoIn ,classParseKind:classParseKind )
                         switch subJsonParserString{
                             
                         case .classDefines(let subClassDefine):
@@ -89,7 +94,7 @@ class TPJsonParser{
 
                     }
                     classDefines += ( subClassDefines + subVariableDeclares)
-                    switch jsonParseKind {
+                    switch classParseKind {
                     case .default:
                         classDefines += "}\n"
                     case .HandyJson:
@@ -117,9 +122,9 @@ class TPJsonParser{
         //        return classDefines + (ignoreVar ? "" : head + type + isOptionalString) + "\n" //这里 数组需要忽略 定义 类型
         
         if classDefines.count > 0{
-            return TPJsonParserString.classDefines(classDefines + (ignoreVar ? "" : variableDeclare) + "\n")
+            return TPClassParserString.classDefines(classDefines + (ignoreVar ? "" : variableDeclare) + "\n")
         }else{
-            return TPJsonParserString.variableDeclare(variableDeclare  + "\n")
+            return TPClassParserString.variableDeclare(variableDeclare  + "\n")
         }
 
 

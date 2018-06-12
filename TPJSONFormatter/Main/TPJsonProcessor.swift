@@ -7,11 +7,10 @@
 //
 
 import Cocoa
-
+//json处理器
 class TPJsonProcessor {
     enum TPProcessError:Error{
         case arrayValueTypeNotSame(last:TPJsonModel ,this:TPJsonModel)
-        
     }
     //json 转换成 模型 ⭐️⭐️⭐️⭐️⭐️
     class func processJson(value:Any) throws -> TPJsonModel?  {
@@ -85,33 +84,6 @@ class TPJsonProcessor {
             return nil
         }
     }
-}
-
-class Root{
-    class Menu{
-        var sint :Int?
-        var value :String?
-        var double :Double?
-        var id :String?
-        var sboolean :Bool?
-        var boolean :Int?
-        var sdouble :Double?
-        class Popup{
-            class Items {
-            }
-            var items :[Items]?
-            class Menuitem{
-                var onclick :String?
-                var value :String?
-            }
-            
-            var menuitem :[Menuitem]?
-            var detail :String?
-        }
-        var popup :Popup?
-        var int :Int?
-    }
-    var menu :Menu?
 }
 
 

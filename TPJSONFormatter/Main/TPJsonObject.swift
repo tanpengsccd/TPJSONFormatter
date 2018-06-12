@@ -5,7 +5,7 @@
 //  Created by 谭鹏 on 2018/2/4.
 //  Copyright © 2018年 谭鹏. All rights reserved.
 //
-
+//JOSN 模型
 import Foundation
 indirect enum TPJsonModel:Comparable{
    
