@@ -21,12 +21,16 @@ enum TPClassParserString{
 
 
 class TPClassParser{
-    class func parse(classInfo:TPClassInfo,classParseKind:TPClassParserKind ,ignoreVar:Bool = false) -> TPClassParserString{ //ignoreVar 用于 数组需要忽略 定义 类型 ，如 忽略 var array:ARRAY
-        
+    class func parse(classInfo:TPClassInfo,classParseKind:TPClassParserKind ,ignoreVar:Bool = false, layersOfNested:Int = 0 ) -> TPClassParserString{ //ignoreVar 用于 数组需要忽略 定义 类型 ，如 忽略 var array:ARRAY
+        //缩进
+        let indentation = String.init(repeating: "\t", count: layersOfNested)
+        //类型
         var classDefines = ""
+        //变量
         var variableDeclare:String = ""
         
          variableDeclare.append("var \(classInfo.name ?? classInfo.id)")
+        //类名
         let type:String = {
             switch classInfo.properties {
             case .bool:
@@ -37,94 +41,77 @@ class TPClassParser{
                 return "Int"
             case .string:
                 return "String"
-            case .recombinationClassKind(let recombination):
+            case .recombinationClassKind(let recombination): //复合类型
                 let classInfoName = "\(classInfo.name?.capitalized ?? classInfo.id)"
                 var typeString = ""
                 
                 switch recombination{
-                case .array(let arrayClass):
+                case .array(let arrayClass): //数组类型
                     if let arrayClass = arrayClass{
-                        let subJsonParserString = parse(classInfo: arrayClass , classParseKind: classParseKind,ignoreVar : true)
+                        let subJsonParserString = parse(classInfo: arrayClass , classParseKind: classParseKind,ignoreVar : true, layersOfNested: layersOfNested + 1)
                         switch subJsonParserString{
-                            
                         case .classDefines(let subClassDefines):
                             classDefines += subClassDefines
                         case .variableDeclare(let subVariableDeclares):
                             variableDeclare += subVariableDeclares
-                            
-                            
                         }
-                        
-                        
                     }else{
                         switch classParseKind{
-                            
                         case .default:
-                            classDefines += "class \(classInfoName) {\n}\n"
+                            classDefines += "class \(classInfoName) {\n\(indentation)}\n\(indentation)"
                         case .HandyJson:
-                            classDefines += "class \(classInfoName) : HandyJSON {\nrequired init(){}\n}\n"
+                            classDefines += "class \(classInfoName) : HandyJSON {\n\(indentation + indentation)required init(){}\n\(indentation)}\n\(indentation)"
                         }
-                        
                     }
                     
                     typeString = "[\(classInfoName)]"
                     
-                case .customClass(let classes):
+                case .customClass(let classes): //自定义类型
                     switch classParseKind{
-                        
                     case .default:
-                        classDefines += "class \(classInfoName){ \n"
+                        classDefines += "class \(classInfoName){ \n\(indentation)"
                     case .HandyJson:
-                        classDefines += "class \(classInfoName) : HandyJSON { \n"
+                        classDefines += "class \(classInfoName) : HandyJSON { \n\(indentation)"
                     }
-                    
                     var subClassDefines = ""
                     var subVariableDeclares = ""
                     for classInfoIn in classes {
-                        let subJsonParserString = parse(classInfo: classInfoIn ,classParseKind:classParseKind )
+                        let subJsonParserString = parse(classInfo: classInfoIn ,classParseKind:classParseKind, layersOfNested: layersOfNested + 1 )
                         switch subJsonParserString{
-                            
                         case .classDefines(let subClassDefine):
                             subClassDefines += subClassDefine
                         case .variableDeclare(let subVariableDeclare):
                             subVariableDeclares += subVariableDeclare
                         }
-                        
-//                        classDefines += parse(classInfo: classInfoIn ,jsonParseKind:jsonParseKind )
-
                     }
                     classDefines += ( subClassDefines + subVariableDeclares)
                     switch classParseKind {
                     case .default:
-                        classDefines += "}\n"
+                        classDefines += "}\n\(indentation)"
                     case .HandyJson:
-                        classDefines += "required init(){}\n}\n"
+                        classDefines += "required init(){}\n\(indentation)}\n\(indentation)"
                     }
-                    
                     typeString = classInfoName
-                    
                 }
-                
                 return typeString
             }
+            
 
         }()
         
-
-//        let isOptionalString:String  = {
-            if let isOptional = classInfo.isOptional, !isOptional{
-                variableDeclare  += " = " + type +  "()"
-            }else{
-                variableDeclare  += " : " + type + "?"
-            }
-
-//        }()
-        //        return classDefines + (ignoreVar ? "" : head + type + isOptionalString) + "\n" //这里 数组需要忽略 定义 类型
-        
-        if classDefines.count > 0{
-            return TPClassParserString.classDefines(classDefines + (ignoreVar ? "" : variableDeclare) + "\n")
+        //set isOptional
+        if let isOptional = classInfo.isOptional, !isOptional{
+            variableDeclare  += " = " + type +  "()"
         }else{
-            return TPClassParserString.variableDeclare(variableDeclare  + "\n")
+            variableDeclare  += " : " + type + "?"
+        }
+
+        
+        //return result
+        if classDefines.count > 0{
+            return TPClassParserString.classDefines(indentation + classDefines + (ignoreVar ? "" : variableDeclare) + "\n\(indentation)")
+        }else{
+            return TPClassParserString.variableDeclare(indentation + variableDeclare  + "\n\(indentation)")
         }
 
 
