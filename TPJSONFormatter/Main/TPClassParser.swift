@@ -24,12 +24,14 @@ class TPClassParser{
     class func parse(classInfo:TPClassInfo,classParseKind:TPClassParserKind ,ignoreVar:Bool = false, layersOfNested:Int = 0 ) -> TPClassParserString{ //ignoreVar 用于 数组需要忽略 定义 类型 ，如 忽略 var array:ARRAY
         //缩进
         let indentation = String.init(repeating: "\t", count: layersOfNested)
+        //换行
+        let lineFeed = "\n" + indentation
         //类型
         var classDefines = ""
-        //变量
-        var variableDeclare:String = ""
+        //变量声明
+        var variableDeclare:String = "var \(classInfo.name ?? classInfo.id)"
         
-         variableDeclare.append("var \(classInfo.name ?? classInfo.id)")
+//         variableDeclare.append("var \(classInfo.name ?? classInfo.id)")
         //类名
         let type:String = {
             switch classInfo.properties {
@@ -46,32 +48,12 @@ class TPClassParser{
                 var typeString = ""
                 
                 switch recombination{
-                case .array(let arrayClass): //数组类型
-                    if let arrayClass = arrayClass{
-                        let subJsonParserString = parse(classInfo: arrayClass , classParseKind: classParseKind,ignoreVar : true, layersOfNested: layersOfNested + 1)
-                        switch subJsonParserString{
-                        case .classDefines(let subClassDefines):
-                            classDefines += subClassDefines
-                        case .variableDeclare(let subVariableDeclares):
-                            variableDeclare += subVariableDeclares
-                        }
-                    }else{
-                        switch classParseKind{
-                        case .default:
-                            classDefines += "class \(classInfoName) {\n\(indentation)}\n\(indentation)"
-                        case .HandyJson:
-                            classDefines += "class \(classInfoName) : HandyJSON {\n\(indentation + indentation)required init(){}\n\(indentation)}\n\(indentation)"
-                        }
-                    }
-                    
-                    typeString = "[\(classInfoName)]"
-                    
                 case .customClass(let classes): //自定义类型
                     switch classParseKind{
                     case .default:
-                        classDefines += "class \(classInfoName){ \n\(indentation)"
+                        classDefines += "class \(classInfoName){\(lineFeed)"
                     case .HandyJson:
-                        classDefines += "class \(classInfoName) : HandyJSON { \n\(indentation)"
+                        classDefines += "class \(classInfoName) : HandyJSON {\(lineFeed)"
                     }
                     var subClassDefines = ""
                     var subVariableDeclares = ""
@@ -87,11 +69,32 @@ class TPClassParser{
                     classDefines += ( subClassDefines + subVariableDeclares)
                     switch classParseKind {
                     case .default:
-                        classDefines += "}\n\(indentation)"
+                        classDefines += "}\(lineFeed + indentation)"
                     case .HandyJson:
-                        classDefines += "required init(){}\n\(indentation)}\n\(indentation)"
+                        classDefines += ( indentation + "required init(){}\(lineFeed)}" + lineFeed)
                     }
                     typeString = classInfoName
+                case .array(let arrayClass): //数组类型
+                    if let arrayClass = arrayClass{
+                        let subJsonParserString = parse(classInfo: arrayClass , classParseKind: classParseKind,ignoreVar : true, layersOfNested: layersOfNested + 1)
+                        switch subJsonParserString{
+                        case .classDefines(let subClassDefines):
+                            classDefines += subClassDefines
+                        case .variableDeclare(let subVariableDeclares):
+                            variableDeclare += subVariableDeclares
+                        }
+                    }else{
+                        switch classParseKind{
+                        case .default:
+                            classDefines += "class \(classInfoName) {\(lineFeed)}\(lineFeed)"
+                        case .HandyJson:
+                            classDefines += "class \(classInfoName) : HandyJSON {\(lineFeed + indentation)required init(){}\(lineFeed)}\(lineFeed)"
+                        }
+                    }
+                    
+                    typeString = "[\(classInfoName)]"
+                    
+                
                 }
                 return typeString
             }
@@ -101,22 +104,50 @@ class TPClassParser{
         
         //set isOptional
         if let isOptional = classInfo.isOptional, !isOptional{
-            variableDeclare  += " = " + type +  "()"
+            variableDeclare  += " = " + type +  "()" + lineFeed
         }else{
-            variableDeclare  += " : " + type + "?"
+            variableDeclare  += " : " + type + "?" + lineFeed
         }
-
-        
         //return result
         if classDefines.count > 0{
-            return TPClassParserString.classDefines(indentation + classDefines + (ignoreVar ? "" : variableDeclare) + "\n\(indentation)")
+            return TPClassParserString.classDefines(lineFeed + classDefines + (ignoreVar ? "" : variableDeclare))
         }else{
-            return TPClassParserString.variableDeclare(indentation + variableDeclare  + "\n\(indentation)")
+            return TPClassParserString.variableDeclare(variableDeclare)
         }
-
-
     }
-    
 }
 
 
+//class Root : HandyJSON {
+//    class Menu : HandyJSON {
+//        class Popup : HandyJSON {
+//            class Items : HandyJSON {
+//
+//                required init(){}
+//            }
+//            var items = [Items]()
+//            class Menuitem : HandyJSON {
+//                var onclick : String?
+//                var value : String?
+//                required init(){}
+//            }
+//
+//            var menuitem = [Menuitem]()
+//            var detail : String?
+//            required init(){}
+//        }
+//        var popup : Popup?
+//        var sint : Int?
+//        var value : String?
+//        var double : Double?
+//        var id : String?
+//        var sboolean : Bool?
+//        var boolean : Int?
+//        var sdouble : Double?
+//        var int : Int?
+//        required init(){}
+//    }
+//    var menu : Menu?
+//    required init(){}
+//}
+//var root : Root?
