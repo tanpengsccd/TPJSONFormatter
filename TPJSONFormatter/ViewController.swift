@@ -38,31 +38,32 @@ class ViewController: NSViewController {
                 let dict = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableLeaves)
                 print(dict)
                 //转换成JSON模型
-                if let  json = try TPJsonProcessor.processJson(value: dict){
-                    print("---json---")
-                    print(json)
-                    //转成代码Code
-                    if let classInfo = try TPClassInfo.result(id: "a", name: "root", jsonValue: json, isOptional: true, isArrayInitial:true){
-                        print("---classInfo---")
-                        print(classInfo)
-                        let handyJson = TPClassParser.parse(classInfo: classInfo , classParseKind: .HandyJson)
-                        print("---handyJSON---")
-                        switch handyJson{
-                            
-                        case .classDefines(let str):
-                            print("class:")
-                            print(str)
-                            self.outputTextView.string = str
-                            copyOutputTextContent(content: str)
-                        case .variableDeclare(let str):
-                            print("variable:")
-                            print(str)
-                            self.outputTextView.string = str
-                            copyOutputTextContent(content: str)
-                        }
-                        //输出 文本
+                
+                let  json = try TPJsonProcessor.processJson(value: dict)
+                print("---json---")
+                print(json)
+                //转成代码Code
+                if let classInfo = try TPClassInfo.result(id: "a", name: "root", jsonValue: json, isOptional: true, isArrayInitial:true){
+                    print("---classInfo---")
+                    print(classInfo)
+                    let handyJson = TPClassParser.parse(classInfo: classInfo , classParseKind: .HandyJson)
+                    print("---handyJSON---")
+                    switch handyJson{
+
+                    case .classDefines(let classes , let variables):
+                        print("class:")
+                        print(classes + variables)
+                        self.outputTextView.string = classes + variables
+                        copyOutputTextContent(content: classes + variables)
+                    case .variableDeclare(let str):
+                        print("variable:")
+                        print(str)
+                        self.outputTextView.string = str
+                        copyOutputTextContent(content: str)
                     }
+                    //输出 文本
                 }
+                
             }catch let error{
                 print(error)
             }

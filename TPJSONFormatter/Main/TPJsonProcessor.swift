@@ -11,51 +11,57 @@ import Cocoa
 class TPJsonProcessor {
     enum TPProcessError:Error{
         case arrayValueTypeNotSame(last:TPJsonModel ,this:TPJsonModel)
+        case arrayValueCountZero
+        case cantCastToString
     }
     //json 转换成 模型 ⭐️⭐️⭐️⭐️⭐️
-    class func processJson(value:Any) throws -> TPJsonModel?  {
+    class func processJson(value:Any) throws -> TPJsonModel  {
         
         if let properties = value as? Dictionary<String, Any>{ // 如果能转为字典类型
-            var classes : [TPJsonObject] = []
+            var classes : [String : TPJsonModel] = [:]
             try properties.forEach { (key , value) in
-                if let jsonValue = try  processJson(value: value){
-                    let classInfo = TPJsonObject.init(key: key, value: jsonValue)
-                    classes.append(classInfo)
-                }
+                let jsonValue = try  processJson(value: value)
+//                    let classInfo = [key : jsonValue] //TPJsonObject.init(key: key, value: jsonValue)
+//                    classes.append(classInfo)
+                classes[key] = jsonValue
+                
                 
             }
             return TPJsonModel.properties(classes)
         }else if let arrays = value as? Array<Any>{ //如果能转成 数组类型
-            var lastJsonValue : TPJsonModel? // 保存上个 value，用来判断下个 value 的类型是否相同
-            for value in arrays { // 理论数组 内 elemtnt 类型相同，不同需要报错
-                if let thisValue = try processJson(value: value){
-                    if let lastJsonValue = lastJsonValue{ //第二次开始比较类型
-                        if thisValue == lastJsonValue{
-                            switch (thisValue ,lastJsonValue  ){
-                            case ( .properties(var thisProperties), .properties(let lastProperties )):
-                                thisProperties.forEach({ (thisProperty) in
-                                    if !lastProperties.contains(where: { (lastProperty) -> Bool in // 上个属性集合不包含这个属性时，需要添加这个属性
-                                        return thisProperty == lastProperty
-                                    }){
-                                        thisProperties.append(thisProperty)
-                                    }
-                                })
-                            default:
-                                break
-                            }
-                            
-                            
-                        }else{
-                            throw  TPProcessError.arrayValueTypeNotSame(last: lastJsonValue, this: thisValue)
+            var lastValue : TPJsonModel? // 保存上个 value，用来判断下个 value 的类型是否相同
+            for value in arrays { // 理论数组 内 elemtnt 大类型（enum三种）相同，不同需要报错
+                
+                let thisValue = try processJson(value: value)
+                if lastValue == nil{ //只是第一次触发
+                    lastValue = thisValue
+                }else{
+                    if thisValue == lastValue{
+                        switch (thisValue,lastValue){
+                        case ( .properties(let thisProperties) , .properties(var lastProperties)?): //都是属性 类型时 还需继续添加不同属性
+                            thisProperties.forEach({ (thisProperty) in
+                                if !lastProperties.contains(where: { $0.key == thisProperty.key && $0.value == thisProperty.value}){ // 上个属性集合不包含这个属性时，需要添加这个属性
+                                    lastProperties[thisProperty.key] = thisProperty.value
+                                }
+                            })
+                        default:
+                            break
                         }
+                        
+                        
+                    }else{
+                        throw  TPProcessError.arrayValueTypeNotSame(last: lastValue!, this: thisValue)
                     }
-                    lastJsonValue = thisValue
                 }
-                
-                
+            }
+            
+            if let result = lastValue{ //数组里有类型
+                return TPJsonModel.arrays(result)
+            }else{ //lastValue 为nil 时，不确定类型时 默认定为string
+                return TPJsonModel.arrays(TPJsonModel.simpleValue(.string))
                 
             }
-            return TPJsonModel.arrays(lastJsonValue)
+            
         }else if let double = value as? Double {
             if floor(double) == double {
                 return TPJsonModel.simpleValue(.int)
@@ -65,7 +71,8 @@ class TPJsonProcessor {
         }else if let _ = value as? Bool{
                 return TPJsonModel.simpleValue(.bool)
             
-        }else if let string = value as? String{
+        }else{
+            guard let string = value as? String else{  throw TPProcessError.cantCastToString}
             //还可以再处理 bool ， int ， double
             if ["true","false"] .contains(string){
                 return  TPJsonModel.simpleValue(.bool)
@@ -75,13 +82,12 @@ class TPJsonProcessor {
                 }else{
                     return TPJsonModel.simpleValue(.double)
                 }
-
+                
             }else{
-                 return TPJsonModel.simpleValue(.string)
+                return TPJsonModel.simpleValue(.string)
             }
-           
-        }else{
-            return nil
+                
+            
         }
     }
 }

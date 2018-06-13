@@ -8,24 +8,21 @@
 
 import Foundation
 //代码类型模型 如HandyJson
-struct TPClassInfo {
+indirect enum TPClassInfo { //
     
-    indirect enum ClassKind{
-        enum RecombinationClassKind {
-            case array(arrayClass:TPClassInfo?)
-            case customClass(classes:[TPClassInfo])
-        }
-        case bool 
+     enum TPSimpleClassKind{
+        case bool
         case double
         case int
         case string
-        case recombinationClassKind(recombination:RecombinationClassKind)
     }
-    var name: String?
-    var id:String
-    var isOptional:Bool?
-    var properties: ClassKind
-    
+    case simple(TPSimpleClassKind) //简单类型
+    case recombination(id:String,name:String?,subClasses:[TPClassInfo]) //复合类型
+    case array(id:String,name:String?,elementClass:TPClassInfo) //数组类型
+//    var name: String? //数组可能无名字
+//    var id:String //唯一id
+//    var properties: TPClassKind
+//    var typealiasValue: String?
     
     /// 生成结果
     ///
@@ -37,39 +34,39 @@ struct TPClassInfo {
     ///   - isArrayInitial: 数组节点是否初始化
     /// - Returns: 返回
     /// - Throws: 返回异常
-    static func  result(id:String  , name:String?, jsonValue:TPJsonModel?,isOptional:Bool ,isArrayInitial :Bool ) throws -> TPClassInfo? {
-        if let jsonValue = jsonValue {
+    static func  result(id:String  , name:String?, jsonValue:TPJsonModel   ) throws -> TPClassInfo {
+        
             var childId = 0
             switch jsonValue {
                 
             case .simpleValue(let value):
                 switch value{
                 case .bool:
-                    return  TPClassInfo.init(name: name, id: "\(id)_\(childId)", isOptional: isOptional, properties: TPClassInfo.ClassKind.bool)
+                    return  TPClassInfo.simple(.bool)
                 case .double:
-                    return  TPClassInfo.init(name: name, id: "\(id)_\(childId)", isOptional: isOptional, properties: TPClassInfo.ClassKind.double)
+                    return  TPClassInfo.simple(.double)
                 case .int:
-                    return  TPClassInfo.init(name: name, id: "\(id)_\(childId)", isOptional: isOptional, properties: TPClassInfo.ClassKind.int)
+                    return  TPClassInfo.simple(.int)
                 case .string:
-                    return  TPClassInfo.init(name: name, id: "\(id)_\(childId)", isOptional: isOptional, properties: TPClassInfo.ClassKind.string)
+                    return  TPClassInfo.simple(.string)
                     
                 }
             case .properties(let properties):
                 let classInfos = try properties.map({ (jsonObject) -> TPClassInfo in
                     
-                    let classInfo = try result(id: "\(id)_\(childId)", name: jsonObject.key, jsonValue: jsonObject.value,isOptional: isOptional, isArrayInitial:isArrayInitial)
+                    let classInfo = try result(id: "\(id)_\(childId)", name: jsonObject.key, jsonValue: jsonObject.value)
                     childId += 1
-                    return classInfo!
+                    return classInfo
                 })
-                return TPClassInfo.init(name: name, id: id, isOptional: nil, properties: TPClassInfo.ClassKind.recombinationClassKind(recombination: TPClassInfo.ClassKind.RecombinationClassKind.customClass(classes: classInfos)))
+                return TPClassInfo.recombination(id: id, name: name, subClasses: classInfos)
+                    //TPClassInfo.init(name: name, id: id, isOptional: nil, properties: TPClassInfo.TPClassKind.recombinationClassKind(recombination: TPClassInfo.TPClassKind.RecombinationClassKind.customClass(classes: classInfos)))
             case .arrays(let jsonModel):
-                let classInfo = try result(id: "\(id)_\(childId)", name: name, jsonValue: jsonModel,isOptional: isOptional ,isArrayInitial:isArrayInitial )
-                return TPClassInfo.init(name: name, id: id, isOptional: !isArrayInitial, properties: TPClassInfo.ClassKind.recombinationClassKind(recombination: TPClassInfo.ClassKind.RecombinationClassKind.array(arrayClass: classInfo)))
+                let classInfo = try result(id: "\(id)_\(childId)", name: name, jsonValue: jsonModel )
+                return TPClassInfo.array(id: id, name: name, elementClass: classInfo)
+                    //TPClassInfo.init(name: name, id: id, isOptional: !isArrayInitial, properties: TPClassInfo.TPClassKind.recombinationClassKind(recombination: TPClassInfo.TPClassKind.RecombinationClassKind.array(arrayClass: classInfo)))
                 
             }
-        }else{
-            return nil
-        }
+        
     }
 }
 
