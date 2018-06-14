@@ -12,7 +12,7 @@ class TPJsonProcessor {
     enum TPProcessError:Error{
         case arrayValueTypeNotSame(last:TPJsonModel ,this:TPJsonModel)
         case arrayValueCountZero
-        case cantCastToString
+        case cantCastToString(Any)
     }
     //json 转换成 模型 ⭐️⭐️⭐️⭐️⭐️
     class func processJson(value:Any) throws -> TPJsonModel  {
@@ -72,19 +72,22 @@ class TPJsonProcessor {
                 return TPJsonModel.simpleValue(.bool)
             
         }else{
-            guard let string = value as? String else{  throw TPProcessError.cantCastToString}
-            //还可以再处理 bool ， int ， double
-            if ["true","false"] .contains(string){
-                return  TPJsonModel.simpleValue(.bool)
-            }else if let double = Double(string){
-                if floor(double) == double {
-                    return TPJsonModel.simpleValue(.int)
+            if  let string = value as? String {
+                //还可以再处理 bool ， int ， double
+                if ["true","false"] .contains(string){
+                    return  TPJsonModel.simpleValue(.bool)
+                }else if let double = Double(string){
+                    if floor(double) == double {
+                        return TPJsonModel.simpleValue(.int)
+                    }else{
+                        return TPJsonModel.simpleValue(.double)
+                    }
+                    
                 }else{
-                    return TPJsonModel.simpleValue(.double)
+                    return TPJsonModel.simpleValue(.string)
                 }
-                
             }else{
-                return TPJsonModel.simpleValue(.string)
+                return TPJsonModel.null
             }
                 
             

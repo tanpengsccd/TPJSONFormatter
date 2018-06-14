@@ -706,21 +706,21 @@
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="TPJSONFormatter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="1057" height="584"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1057" height="628"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sE0-eQ-G1B">
-                                <rect key="frame" x="0.0" y="80" width="537" height="504"/>
+                                <rect key="frame" x="0.0" y="80" width="537" height="548"/>
                                 <clipView key="contentView" id="YGF-qz-yrn">
-                                    <rect key="frame" x="1" y="1" width="520" height="502"/>
+                                    <rect key="frame" x="1" y="1" width="520" height="546"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textView importsGraphics="NO" verticallyResizable="YES" baseWritingDirection="leftToRight" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="KEq-12-top">
-                                            <rect key="frame" x="0.0" y="0.0" width="520" height="502"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="520" height="546"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <size key="minSize" width="520" height="502"/>
+                                            <size key="minSize" width="520" height="546"/>
                                             <size key="maxSize" width="1040" height="10000000"/>
                                             <attributedString key="textStorage">
                                                 <fragment>
@@ -775,21 +775,21 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="HpP-xA-FH6">
-                                    <rect key="frame" x="521" y="1" width="15" height="502"/>
+                                    <rect key="frame" x="521" y="1" width="15" height="546"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
                             <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LbF-al-7lN">
-                                <rect key="frame" x="537" y="80" width="520" height="504"/>
+                                <rect key="frame" x="537" y="80" width="520" height="548"/>
                                 <clipView key="contentView" id="IGQ-mj-cfr">
-                                    <rect key="frame" x="1" y="1" width="503" height="502"/>
+                                    <rect key="frame" x="1" y="1" width="503" height="546"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textView importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="BRP-4O-WPA">
-                                            <rect key="frame" x="0.0" y="0.0" width="503" height="502"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="503" height="546"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <size key="minSize" width="503" height="502"/>
+                                            <size key="minSize" width="503" height="546"/>
                                             <size key="maxSize" width="520" height="10000000"/>
                                             <color key="insertionPointColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </textView>
@@ -801,7 +801,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="4s6-3O-Pi1">
-                                    <rect key="frame" x="504" y="1" width="15" height="502"/>
+                                    <rect key="frame" x="504" y="1" width="15" height="546"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
@@ -818,10 +818,31 @@
                                             <action selector="onProccess:" target="XfG-lQ-9wD" id="kBG-H3-Jrk"/>
                                         </connections>
                                     </button>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="NbU-sY-1gg">
+                                        <rect key="frame" x="972" y="59" width="82" height="18"/>
+                                        <buttonCell key="cell" type="check" title="AutoCopy" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="KbF-KT-P2y">
+                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                    </button>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="kZk-3a-IZy">
+                                        <rect key="frame" x="471" y="59" width="115" height="18"/>
+                                        <buttonCell key="cell" type="check" title="AutoProccess" alternateTitle="自动监测输入板" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="grN-mn-dsC">
+                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="onBtn_autoProccess:" target="XfG-lQ-9wD" id="M3S-WM-ijc"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="kZk-3a-IZy" firstAttribute="top" secondItem="h1W-Qq-CzM" secondAttribute="top" constant="5" id="3yn-hd-XN5"/>
+                                    <constraint firstAttribute="trailing" secondItem="NbU-sY-1gg" secondAttribute="trailing" constant="5" id="JJV-tt-36I"/>
                                     <constraint firstAttribute="height" constant="80" id="KMC-aV-hYB"/>
                                     <constraint firstItem="DBg-9W-QcC" firstAttribute="centerX" secondItem="h1W-Qq-CzM" secondAttribute="centerX" id="KbY-3U-PEw"/>
+                                    <constraint firstItem="kZk-3a-IZy" firstAttribute="centerX" secondItem="h1W-Qq-CzM" secondAttribute="centerX" id="OxH-64-Uy1"/>
+                                    <constraint firstItem="NbU-sY-1gg" firstAttribute="top" secondItem="h1W-Qq-CzM" secondAttribute="top" constant="5" id="R8l-ol-OcY"/>
                                     <constraint firstAttribute="bottom" secondItem="DBg-9W-QcC" secondAttribute="bottom" constant="5" id="SeS-py-mNt"/>
                                 </constraints>
                             </customView>
@@ -841,6 +862,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="checkBox_autoCopy" destination="NbU-sY-1gg" id="Vyn-m9-hoH"/>
+                        <outlet property="checkBox_autoProccess" destination="kZk-3a-IZy" id="hmG-I3-ZRA"/>
                         <outlet property="inputTextView" destination="KEq-12-top" id="Ls0-zU-0Rr"/>
                         <outlet property="onProccess" destination="DBg-9W-QcC" id="uck-xl-hs8"/>
                         <outlet property="outputTextView" destination="BRP-4O-WPA" id="Q31-CA-bDU"/>
@@ -848,7 +871,7 @@
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="203.5" y="896"/>
+            <point key="canvasLocation" x="203.5" y="918"/>
         </scene>
     </scenes>
 </document>

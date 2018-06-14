@@ -8,16 +8,22 @@
 
 import Cocoa
 
-class ViewController: NSViewController {
+class ViewController: NSViewController,NSTextViewDelegate {
 
     @IBOutlet var inputTextView: NSTextView!
     
     @IBOutlet weak var outputTextView: NSTextView!
     
+    @IBOutlet weak var checkBox_autoProccess: NSButton!
+    
+    @IBOutlet weak var checkBox_autoCopy: NSButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Converter"
         onProccess(nil)
+        inputTextView.delegate = self
+
     }
     override var representedObject: Any? {
         didSet {
@@ -43,25 +49,20 @@ class ViewController: NSViewController {
                 print("---json---")
                 print(json)
                 //转成代码Code
-                if let classInfo = try TPClassInfo.result(id: "a", name: "root", jsonValue: json, isOptional: true, isArrayInitial:true){
+                 let classInfo = try TPInstanceInfo.result(id: "0", name: "root", jsonValue: json)
                     print("---classInfo---")
                     print(classInfo)
-                    let handyJson = TPClassParser.parse(classInfo: classInfo , classParseKind: .HandyJson)
+                let handyJson = TPInstanceParser.parse(instanceInfo: classInfo, classParserKind: .HandyJson, layersOfNested: 0)
                     print("---handyJSON---")
-                    switch handyJson{
 
-                    case .classDefines(let classes , let variables):
-                        print("class:")
-                        print(classes + variables)
-                        self.outputTextView.string = classes + variables
-                        copyOutputTextContent(content: classes + variables)
-                    case .variableDeclare(let str):
-                        print("variable:")
-                        print(str)
-                        self.outputTextView.string = str
-                        copyOutputTextContent(content: str)
-                    }
-                    //输出 文本
+                //输出 文本
+                let str = handyJson.resultSring()
+                print(str)
+                self.outputTextView.string = str
+                
+                //自动 拷贝到 粘贴板
+                if self.checkBox_autoCopy.state == .on {
+                   copyOutputTextContent(content: str)
                 }
                 
             }catch let error{
@@ -77,6 +78,15 @@ class ViewController: NSViewController {
         pb.setString(content, forType: NSPasteboard.PasteboardType.string)
 
 //        print(pb.string(forType: .string)!)
+    }
+    //response
+    @IBAction func onBtn_autoProccess(_ sender: NSButton) {
+        self.inputTextView.delegate =  ( sender.state == .on ? self : nil)
+    }
+    
+    //delegate
+    func textViewDidChangeTypingAttributes(_ notification: Notification) {
+        self.onProccess(nil)
     }
 }
 

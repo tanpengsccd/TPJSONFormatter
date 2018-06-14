@@ -47,11 +47,12 @@ indirect enum TPJsonModel:Comparable{
     case simpleValue(TPJsonSimpleValue) //单纯的值，string，bool，double 等
     case properties([String:TPJsonModel]) //属性类型 {}
     case arrays(TPJsonModel) //数组类型 []
+    case null 
 }
 enum TPJsonSimpleValue:String {
-    case bool = "Bool"
-    case double = "Double"
-    case int = "Int"
-    case string = "String"
+    case bool
+    case double
+    case int 
+    case string
 }
 
