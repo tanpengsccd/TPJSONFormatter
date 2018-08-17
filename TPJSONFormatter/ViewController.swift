@@ -60,15 +60,24 @@ class ViewController: NSViewController,NSTextViewDelegate {
                 print(str)
                 self.outputTextView.string = str
                 
-                //自动 拷贝到 粘贴板
-                if self.checkBox_autoCopy.state == .on {
-                   copyOutputTextContent(content: str)
-                }
+//                //自动 拷贝到 粘贴板
+//                if self.checkBox_autoCopy.state == .on {
+//                   copyOutputTextContent(content: str)
+//                }
                 
             }catch let error{
                 print(error)
+                 self.outputTextView.string = ""
             }
         }
+    }
+    
+    //点击复制
+    @IBAction func onBtn_copy(_ sender: NSButtonCell) {
+       let content = self.outputTextView.string
+        let pb = NSPasteboard.general
+        pb.clearContents() //must clear first
+        pb.setString(content, forType: NSPasteboard.PasteboardType.string)
     }
     
     //复制到粘贴板

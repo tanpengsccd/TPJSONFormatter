@@ -790,7 +790,7 @@
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <size key="minSize" width="503" height="546"/>
-                                            <size key="maxSize" width="520" height="10000000"/>
+                                            <size key="maxSize" width="525" height="10000000"/>
                                             <color key="insertionPointColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </textView>
                                     </subviews>
@@ -819,15 +819,18 @@
                                         </connections>
                                     </button>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="NbU-sY-1gg">
-                                        <rect key="frame" x="972" y="59" width="82" height="18"/>
-                                        <buttonCell key="cell" type="check" title="AutoCopy" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="KbF-KT-P2y">
-                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                        <rect key="frame" x="991" y="47" width="67" height="32"/>
+                                        <buttonCell key="cell" type="push" title="复制" bezelStyle="rounded" alignment="center" state="on" borderStyle="border" inset="2" id="KbF-KT-P2y">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
+                                            <connections>
+                                                <action selector="onBtn_copy:" target="XfG-lQ-9wD" id="w19-oU-5a1"/>
+                                            </connections>
                                         </buttonCell>
                                     </button>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="kZk-3a-IZy">
                                         <rect key="frame" x="471" y="59" width="115" height="18"/>
-                                        <buttonCell key="cell" type="check" title="AutoProccess" alternateTitle="自动监测输入板" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="grN-mn-dsC">
+                                        <buttonCell key="cell" type="check" title="自动监测输入板" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="grN-mn-dsC">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
