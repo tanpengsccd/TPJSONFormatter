@@ -17,6 +17,7 @@ indirect enum TPInstanceInfo { //
     case recombination(id:String,name:String?,subInstances:[TPInstanceInfo]) //复合类型
     case array(id:String,name:String?,elementInstance:TPInstanceInfo) //数组类型
     case null(id:String,name:String?) //空类型
+    
     func nameOrId() -> String{
         switch self {
 
@@ -30,7 +31,7 @@ indirect enum TPInstanceInfo { //
             return name ?? id
         }
     }
-    func type() -> String {
+    var type:String {
         switch self {
             
         case .simple(let id, let name, let simpleInstance):

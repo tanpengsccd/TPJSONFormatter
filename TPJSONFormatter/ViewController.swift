@@ -52,7 +52,7 @@ class ViewController: NSViewController,NSTextViewDelegate {
                  let classInfo = try TPInstanceInfo.result(id: "0", name: "root", jsonValue: json)
                     print("---classInfo---")
                     print(classInfo)
-                let handyJson = TPInstanceParser.parse(instanceInfo: classInfo, classParserKind: .HandyJson, layersOfNested: 0)
+                let handyJson = TPInstanceParser.parse(instanceInfo: classInfo, classParserKind: .HandyJson, layersOfNested: 0, arrayLayersOfNested: 0)
                     print("---handyJSON---")
 
                 //输出 文本
