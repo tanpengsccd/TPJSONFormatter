@@ -9,7 +9,7 @@
 import Foundation
 indirect enum TPJsonModel:Comparable{
    
-    
+    //判断节点类型是否相同
     static func ==(lhs: TPJsonModel, rhs: TPJsonModel) -> Bool {
         switch (lhs , rhs) {
         case ( .simpleValue , .simpleValue):
@@ -22,10 +22,12 @@ indirect enum TPJsonModel:Comparable{
 //            }) //这样玩不动 返回的值不能传递 ，下面才能玩得动
             for lhsProperty in lhsProperties{ //可能有问题
                 for rhsProperty in rhsProperties{
-                    return rhsProperty == lhsProperty
+                    if lhsProperty.key == rhsProperty.key { //当属性名相同，类型也必须相同，否则 返回不同结果
+                        return lhsProperty.value == rhsProperty.value
+                    }
                 }
             }
-            return false
+            return true
         case (.arrays ,.arrays):
             return true
         default:

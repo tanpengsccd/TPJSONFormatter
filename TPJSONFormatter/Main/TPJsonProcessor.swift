@@ -36,7 +36,7 @@ class TPJsonProcessor {
                 if lastValue == nil{ //只是第一次触发
                     lastValue = thisValue
                 }else{
-                    if thisValue == lastValue{
+                    if thisValue == lastValue{ //判断节点类型是否相同
                         switch (thisValue,lastValue){
                         case ( .properties(let thisProperties) , .properties(var lastProperties)?): //都是属性 类型时 还需继续添加不同属性
                             thisProperties.forEach({ (thisProperty) in
