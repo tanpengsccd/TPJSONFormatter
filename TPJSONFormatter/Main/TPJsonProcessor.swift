@@ -39,11 +39,15 @@ class TPJsonProcessor {
                     if thisValue == lastValue{ //判断节点类型是否相同
                         switch (thisValue,lastValue){
                         case ( .properties(let thisProperties) , .properties(var lastProperties)?): //都是属性 类型时 还需继续添加不同属性
-                            thisProperties.forEach({ (thisProperty) in
-                                if !lastProperties.contains(where: { $0.key == thisProperty.key && $0.value == thisProperty.value}){ // 上个属性集合不包含这个属性时，需要添加这个属性
-                                    lastProperties[thisProperty.key] = thisProperty.value
-                                }
-                            })
+//                            thisProperties.forEach({ (thisProperty) in
+//                                if !lastProperties.contains(where: { $0.key == thisProperty.key && $0.value == thisProperty.value}){ // 上个属性集合不包含这个属性时，需要添加这个属性
+//                                    lastProperties[thisProperty.key] = thisProperty.value
+//                                }
+//                            })
+                            lastProperties.merge(thisProperties) { (lastP, _) -> TPJsonModel in lastP} //将属性集合合并
+//                            print(lastProperties)
+//                            print(lastValue)
+                            lastValue = TPJsonModel.properties(lastProperties)
                         default:
                             break
                         }
