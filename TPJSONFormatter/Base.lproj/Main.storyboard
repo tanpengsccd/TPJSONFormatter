@@ -723,44 +723,6 @@
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             <size key="minSize" width="528" height="546"/>
                                             <size key="maxSize" width="1040" height="10000000"/>
-                                            <attributedString key="textStorage">
-                                                <fragment>
-                                                    <string key="content">{
-  "object": {
-    "string": "string",
-    "double": 22.22,
-    "int": 20,
-    "boolean": true,
-    "sdouble": "22.22",
-    "sint": "20",
-    "sboolean": "true",
-    "object": {
-      "nullArray":[],
-      "array": [
-        {
-          "stringA":"string"
-        },
-        {
-           "stringB":"string",
-           "stringC":"string"
-        }
-      ],
-      "nestArray": [["String"]]
-    }
-  }
-}
-</string>
-                                                    <attributes>
-                                                        <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <font key="NSFont" size="12" name="Courier"/>
-                                                        <real key="NSKern" value="0.0"/>
-                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" minimumLineHeight="14" defaultTabInterval="36" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
-                                                            <tabStops/>
-                                                        </paragraphStyle>
-                                                        <color key="NSStrokeColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </attributes>
-                                                </fragment>
-                                            </attributedString>
                                             <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                         </textView>
                                     </subviews>
@@ -786,7 +748,7 @@
                                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             <size key="minSize" width="525" height="546"/>
-                                            <size key="maxSize" width="525" height="10000000"/>
+                                            <size key="maxSize" width="527" height="10000000"/>
                                             <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                         </textView>
                                     </subviews>
@@ -814,8 +776,8 @@
                                         </connections>
                                     </button>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="NbU-sY-1gg">
-                                        <rect key="frame" x="991" y="47" width="67" height="32"/>
-                                        <buttonCell key="cell" type="push" title="复制" bezelStyle="rounded" alignment="center" state="on" borderStyle="border" inset="2" id="KbF-KT-P2y">
+                                        <rect key="frame" x="986" y="47" width="72" height="32"/>
+                                        <buttonCell key="cell" type="push" title="Copy" bezelStyle="rounded" alignment="center" state="on" borderStyle="border" inset="2" id="KbF-KT-P2y">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
                                             <connections>

@@ -23,6 +23,36 @@ class ViewController: NSViewController,NSTextViewDelegate {
         self.title = "Converter"
         onProccess(nil)
         inputTextView.delegate = self
+        
+        
+        #if DEBUG
+        inputTextView.string = """
+        {
+            "object": {
+                "string": "string",
+                "double": 22.22,
+                "int": 20,
+                "boolean": true,
+                "sdouble": "22.22",
+                "sint": "20",
+                "sboolean": "true",
+                "object": {
+                    "nullArray":[],
+                    "array": [
+                    {
+                        "stringA":"string"
+                    },
+                    {
+                        "stringB":"string",
+                        "stringC":"string"
+                    }
+                    ],
+                    "nestArray": [[[["sss"]]]]
+                }
+            }
+        }
+        """
+        #endif
 
     }
     override var representedObject: Any? {
