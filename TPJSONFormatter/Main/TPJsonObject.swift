@@ -7,10 +7,10 @@
 //
 //JOSN 模型
 import Foundation
-indirect enum TPJsonModel:Comparable{
+public indirect enum TPJsonModel:Comparable{
    
     //判断节点类型是否相同
-    static func ==(lhs: TPJsonModel, rhs: TPJsonModel) -> Bool {
+    public static func ==(lhs: TPJsonModel, rhs: TPJsonModel) -> Bool {
         switch (lhs , rhs) {
         case ( .simpleValue , .simpleValue):
             return true
@@ -34,7 +34,7 @@ indirect enum TPJsonModel:Comparable{
             return false
         }
     }
-    static func <(lhs: TPJsonModel, rhs: TPJsonModel) -> Bool { //其实用不到
+    public static func <(lhs: TPJsonModel, rhs: TPJsonModel) -> Bool { //其实用不到
         switch (lhs , rhs) {
 
         case (.properties(let lhs) ,.properties(let rhs)):
@@ -51,7 +51,7 @@ indirect enum TPJsonModel:Comparable{
     case arrays(TPJsonModel) //数组类型 []
     case null 
 }
-enum TPJsonSimpleValue:String {
+public enum TPJsonSimpleValue:String {
     case bool
     case double
     case int 

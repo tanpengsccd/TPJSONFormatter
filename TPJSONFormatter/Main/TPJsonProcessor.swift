@@ -8,14 +8,14 @@
 
 import Cocoa
 //json处理器
-class TPJsonProcessor {
+public class TPJsonProcessor {
     enum TPProcessError:Error{
         case arrayValueTypeNotSame(last:TPJsonModel ,this:TPJsonModel)
         case arrayValueCountZero
         case cantCastToString(Any)
     }
     //json 转换成 模型 ⭐️⭐️⭐️⭐️⭐️
-    class func processJson(value:Any) throws -> TPJsonModel  {
+    public class func processJson(value:Any) throws -> TPJsonModel  {
         
         if let properties = value as? Dictionary<String, Any>{ // 如果能转为字典类型
             var classes : [String : TPJsonModel] = [:]
