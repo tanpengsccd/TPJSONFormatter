@@ -40,10 +40,10 @@ class ViewController: NSViewController,NSTextViewDelegate {
                     "nullArray":[],
                     "array": [
                     {
-                        "stringA":"string"
+                        "stringA":"stringA"
                     },
                     {
-                        "stringB":"string",
+        
                         "stringC":"string"
                     }
                     ],
@@ -52,6 +52,7 @@ class ViewController: NSViewController,NSTextViewDelegate {
             }
         }
         """
+        
         #endif
 
     }
