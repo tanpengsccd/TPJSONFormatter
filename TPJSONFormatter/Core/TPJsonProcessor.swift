@@ -13,6 +13,18 @@ class TPJsonProcessor {
         case arrayValueTypeNotSame(last:TPJsonModel ,this:TPJsonModel)
         case arrayValueCountZero
         case cantCastToString(Any)
+        var msg:String{
+            switch self {
+
+            case .arrayValueTypeNotSame:
+                return "数组元素不同"
+            case .arrayValueCountZero:
+                return "数组元素为空"
+            case .cantCastToString:
+                return "不能转为String"
+        
+            }
+        }
     }
     //json 转换成 模型 ⭐️⭐️⭐️⭐️⭐️
     class func processJson(value:Any) throws -> TPJsonModel  {
