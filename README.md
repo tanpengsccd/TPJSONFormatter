@@ -5,7 +5,7 @@ A Mac App for  [HandyJSON](https://github.com/alibaba/HandyJSON)
 使用复制JOSN 到粘贴板，使用快捷键，即可生成代码
 
 
-2. 直接打开APP
+2. 或者直接打开APP使用
 ![image](https://github.com/tanpengsccd/TPJSONFormatter/blob/master/UseWay.gif)
 
 
