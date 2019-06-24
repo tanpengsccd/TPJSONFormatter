@@ -14,14 +14,28 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
     
     func perform(with invocation: XCSourceEditorCommandInvocation, completionHandler: @escaping (Error?) -> Void ) -> Void {
         // Implement your command here, invoking the completion handler when done. Pass it nil on success, and an NSError on failure.
-        guard let jsonData =  NSPasteboard.general.data(forType: .string) ,let currentRange = invocation.buffer.selections.firstObject as? XCSourceTextRange else{
-            return
+        guard
+            let jsonData =  NSPasteboard.general.data(forType: .string) ,
+            let currentRange = invocation.buffer.selections.firstObject as? XCSourceTextRange
+            else{
+                return
         }
         let allLines = invocation.buffer.lines
         let currentLine = currentRange.start.line
+        var className:String?
+        for i in 0..<allLines.count {
+            guard let lineString = allLines[i] as? String else{ return }
+            if lineString.contains(".swift"){
+                let start = lineString.index(lineString.startIndex, offsetBy: 4)
+                let end = lineString.index(lineString.endIndex, offsetBy: -7) //".swift\n"
+                className = String(lineString[start..<end])
+                break
+            }
+        }
         
         do {
-            let code = try self.pasteboardToCode(jsonData: jsonData)
+            let code = try self.pasteboardToCode(jsonData: jsonData,className: className)
+            
             allLines.insert(code, at: currentLine)
         }catch let error as TPJsonProcessor.TPProcessError {
             let msg = """
@@ -40,7 +54,8 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
         completionHandler(nil)
     }
 
-    func pasteboardToCode(jsonData:Data) throws -> String {
+    //粘贴板 转 代码
+    func pasteboardToCode(jsonData:Data, className:String? = nil ) throws -> String {
         
         
             //序列化为JOSN
@@ -49,7 +64,7 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
             #if DEBUG
             print(dict)
             #endif
-            //转换成JSON模型
+            //转换成JSON模型(HandyJSON)
             
             let  json = try TPJsonProcessor.processJson(value: dict)
             #if DEBUG
@@ -57,7 +72,7 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
             print(json)
             #endif
             //转成代码Code
-            let classInfo = try TPInstanceInfo.result(id: "0", name: "root", jsonValue: json)
+            let classInfo = try TPInstanceInfo.result(id: "0", name: className ?? "root", jsonValue: json)
             #if DEBUG
             print("---classInfo---")
             print(classInfo)
@@ -66,7 +81,7 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
             print("---handyJSON---")
             
             //输出 文本
-            let str = handyJson.resultSring()
+            let str = handyJson.resultSring(isVariableDeclare: false)
             #if DEBUG
             print(str)
             #endif

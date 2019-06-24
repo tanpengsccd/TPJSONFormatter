@@ -31,8 +31,8 @@ struct TPInstanceParserStrings{
     var variableDeclare:String //var student
     var function:String?
     
-    func resultSring() -> String{
-        return (classDefines ?? "") + variableDeclare + (function ?? "")
+    func resultSring(isVariableDeclare:Bool = true) -> String{
+        return (classDefines ?? "") + (isVariableDeclare ? variableDeclare : "") + (function ?? "")
     }
 }
 
