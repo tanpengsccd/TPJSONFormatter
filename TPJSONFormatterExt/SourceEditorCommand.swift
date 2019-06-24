@@ -14,12 +14,15 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
     
     func perform(with invocation: XCSourceEditorCommandInvocation, completionHandler: @escaping (Error?) -> Void ) -> Void {
         // Implement your command here, invoking the completion handler when done. Pass it nil on success, and an NSError on failure.
-        guard let jsonData =  NSPasteboard.general.data(forType: .string) else {
+        guard let jsonData =  NSPasteboard.general.data(forType: .string) ,let currentRange = invocation.buffer.selections.firstObject as? XCSourceTextRange else{
             return
         }
+        let allLines = invocation.buffer.lines
+        let currentLine = currentRange.start.line
+        
         do {
             let code = try self.pasteboardToCode(jsonData: jsonData)
-            invocation.buffer.lines.add(code)
+            allLines.insert(code, at: currentLine)
         }catch let error as TPJsonProcessor.TPProcessError {
             let msg = """
             /**
@@ -28,13 +31,11 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
             请提交问题并附上JSON示例：https://github.com/tanpengsccd/TPJSONFormatter/issues (⌘ + Click)
             **/
             """
-            invocation.buffer.lines.add(msg)
+            allLines.insert(msg, at: currentLine)
         }catch let error {
-            invocation.buffer.lines.add("// TPJSONFormatterExt代码生成失败:\(error)")
+            let msg = "// TPJSONFormatterExt代码生成失败:\(error)"
+            allLines.insert(msg, at: currentLine)
         }
-    
-    
-        
         
         completionHandler(nil)
     }
