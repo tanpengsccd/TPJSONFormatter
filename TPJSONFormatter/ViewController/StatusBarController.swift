@@ -20,7 +20,7 @@ class StatusBarController: NSObject {
     
     var mainMenu:NSMenu {
         let quitItem = NSMenuItem.init(title: "Quit TPJSONFormatter", action: #selector(self.onQuit), keyEquivalent: "q");quitItem.keyEquivalentModifierMask = NSEvent.ModifierFlags.command
-        let mainItem = NSMenuItem.init(title: "Main", action: #selector(self.onQuit), keyEquivalent: "");
+        let mainItem = NSMenuItem.init(title: "Main", action: #selector(self.onMain), keyEquivalent: "");
         
         let menu = NSMenu.init()
         menu.items = [mainItem,quitItem]
