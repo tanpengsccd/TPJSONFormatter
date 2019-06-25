@@ -16,6 +16,7 @@
 		7BD97B0A2027246100B2D13A /* TPJSONFormatterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD97B092027246100B2D13A /* TPJSONFormatterUITests.swift */; };
 		7BD97B2E2030765100B2D13A /* String_extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD97B2D2030765100B2D13A /* String_extension.swift */; };
 		82E36CF0B57CC76920C69506 /* Pods_TPJSONFormatter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69A30BC324F728B48D8539C0 /* Pods_TPJSONFormatter.framework */; };
+		A5086F6C22C220D600488831 /* StatusBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5086F6B22C220D600488831 /* StatusBarController.swift */; };
 		A5ECE05722BF9F800018F32C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5ECE05622BF9F800018F32C /* Cocoa.framework */; };
 		A5ECE05A22BF9F800018F32C /* SourceEditorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5ECE05922BF9F800018F32C /* SourceEditorExtension.swift */; };
 		A5ECE05C22BF9F800018F32C /* SourceEditorCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5ECE05B22BF9F800018F32C /* SourceEditorCommand.swift */; };
@@ -98,6 +99,7 @@
 		7BD97B1C202B3D7600B2D13A /* TPInstanceInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPInstanceInfo.swift; sourceTree = "<group>"; };
 		7BD97B2A20306F9700B2D13A /* TPInstanceParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPInstanceParser.swift; sourceTree = "<group>"; };
 		7BD97B2D2030765100B2D13A /* String_extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String_extension.swift; sourceTree = "<group>"; };
+		A5086F6B22C220D600488831 /* StatusBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarController.swift; sourceTree = "<group>"; };
 		A5ECE05422BF9F800018F32C /* TPJSONFormatterExt.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TPJSONFormatterExt.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5ECE05622BF9F800018F32C /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		A5ECE05922BF9F800018F32C /* SourceEditorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceEditorExtension.swift; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 			children = (
 				7BD97AEB2027246100B2D13A /* AppDelegate.swift */,
 				7BD97AED2027246100B2D13A /* ViewController.swift */,
+				A5086F6A22C2209F00488831 /* ViewController */,
 				7BD97B1720274BBA00B2D13A /* Core */,
 				7BD97AEF2027246100B2D13A /* Assets.xcassets */,
 				7BD97AF12027246100B2D13A /* Main.storyboard */,
@@ -221,6 +224,14 @@
 				7BD97B2D2030765100B2D13A /* String_extension.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		A5086F6A22C2209F00488831 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A5086F6B22C220D600488831 /* StatusBarController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		A5ECE05522BF9F800018F32C /* Frameworks */ = {
@@ -545,6 +556,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7BD97AEE2027246100B2D13A /* ViewController.swift in Sources */,
+				A5086F6C22C220D600488831 /* StatusBarController.swift in Sources */,
 				A5ECE07022BFCFBF0018F32C /* TPJsonProcessor.swift in Sources */,
 				7BD97AEC2027246100B2D13A /* AppDelegate.swift in Sources */,
 				A5ECE06F22BFCFBF0018F32C /* TPJsonObject.swift in Sources */,
