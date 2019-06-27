@@ -9,13 +9,13 @@
 import Cocoa
 
 class StatusBarController: NSObject {
-    let statusBarItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength) //声明后就会存在
+    let statusBarItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength) //声明后就会存在statusBar,info.plistd添加Application is agent (UIElement) 就是纯statusBar App了
     override init() {
         super.init()
+//        NSApp.item
         statusBarItem.title = "{TP}"
         statusBarItem.menu = self.mainMenu
-        statusBarItem.doubleAction = #selector(onMain)
-        statusBarItem.target = self
+  
     }
     
     var mainMenu:NSMenu {
