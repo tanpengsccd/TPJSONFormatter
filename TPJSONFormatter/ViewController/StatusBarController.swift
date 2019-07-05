@@ -33,7 +33,7 @@ class StatusBarController: NSObject {
     }
     
     @objc func onMain(){
-        
+//        let vc = MainWindowController.initFromDefaultNib()
     }
     
     

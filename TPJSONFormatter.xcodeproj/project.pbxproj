@@ -9,15 +9,11 @@
 /* Begin PBXBuildFile section */
 		011D3067ECA58DAF53934F85 /* Pods_TPJSONFormatterUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF714CCCEAAD6641BD8E8418 /* Pods_TPJSONFormatterUITests.framework */; };
 		7BD97AEC2027246100B2D13A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD97AEB2027246100B2D13A /* AppDelegate.swift */; };
-		7BD97AEE2027246100B2D13A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD97AED2027246100B2D13A /* ViewController.swift */; };
 		7BD97AF02027246100B2D13A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BD97AEF2027246100B2D13A /* Assets.xcassets */; };
-		7BD97AF32027246100B2D13A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BD97AF12027246100B2D13A /* Main.storyboard */; };
 		7BD97AFF2027246100B2D13A /* TPJSONFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD97AFE2027246100B2D13A /* TPJSONFormatterTests.swift */; };
 		7BD97B0A2027246100B2D13A /* TPJSONFormatterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD97B092027246100B2D13A /* TPJSONFormatterUITests.swift */; };
 		7BD97B2E2030765100B2D13A /* String_extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD97B2D2030765100B2D13A /* String_extension.swift */; };
 		82E36CF0B57CC76920C69506 /* Pods_TPJSONFormatter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69A30BC324F728B48D8539C0 /* Pods_TPJSONFormatter.framework */; };
-		A504CE7022C46AAB00BF0315 /* ToolBarTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A504CE6E22C46AAB00BF0315 /* ToolBarTabViewController.swift */; };
-		A504CE7122C46AAB00BF0315 /* ToolBarTabViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A504CE6F22C46AAB00BF0315 /* ToolBarTabViewController.xib */; };
 		A504CE7422C46B3700BF0315 /* NSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A504CE7322C46B3700BF0315 /* NSViewController.swift */; };
 		A504D01D22C4987400BF0315 /* TPJSONGFormatterApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = A504D01C22C4987400BF0315 /* TPJSONGFormatterApplication.swift */; };
 		A504D02E22C4BA8000BF0315 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A504D02C22C4BA8000BF0315 /* MainVC.swift */; };
@@ -25,6 +21,7 @@
 		A504D03222C4BB3100BF0315 /* GeneralVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A504D03022C4BB3100BF0315 /* GeneralVC.swift */; };
 		A504D03322C4BB3100BF0315 /* GeneralVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A504D03122C4BB3100BF0315 /* GeneralVC.xib */; };
 		A5086F6C22C220D600488831 /* StatusBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5086F6B22C220D600488831 /* StatusBarController.swift */; };
+		A510028A22CB3E5D00B2F7A8 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = A510028922CB3E5D00B2F7A8 /* MainMenu.xib */; };
 		A5ECE05722BF9F800018F32C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5ECE05622BF9F800018F32C /* Cocoa.framework */; };
 		A5ECE05A22BF9F800018F32C /* SourceEditorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5ECE05922BF9F800018F32C /* SourceEditorExtension.swift */; };
 		A5ECE05C22BF9F800018F32C /* SourceEditorCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5ECE05B22BF9F800018F32C /* SourceEditorCommand.swift */; };
@@ -91,9 +88,7 @@
 		70EC20CE1266A99B183B36B0 /* Pods-TPJSONFormatterExt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TPJSONFormatterExt.debug.xcconfig"; path = "Target Support Files/Pods-TPJSONFormatterExt/Pods-TPJSONFormatterExt.debug.xcconfig"; sourceTree = "<group>"; };
 		7BD97AE82027246100B2D13A /* TPJSONFormatter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TPJSONFormatter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BD97AEB2027246100B2D13A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7BD97AED2027246100B2D13A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7BD97AEF2027246100B2D13A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		7BD97AF22027246100B2D13A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7BD97AF42027246100B2D13A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7BD97AF52027246100B2D13A /* TPJSONFormatter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TPJSONFormatter.entitlements; sourceTree = "<group>"; };
 		7BD97AFA2027246100B2D13A /* TPJSONFormatterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TPJSONFormatterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -107,8 +102,6 @@
 		7BD97B1C202B3D7600B2D13A /* TPInstanceInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPInstanceInfo.swift; sourceTree = "<group>"; };
 		7BD97B2A20306F9700B2D13A /* TPInstanceParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPInstanceParser.swift; sourceTree = "<group>"; };
 		7BD97B2D2030765100B2D13A /* String_extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String_extension.swift; sourceTree = "<group>"; };
-		A504CE6E22C46AAB00BF0315 /* ToolBarTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBarTabViewController.swift; sourceTree = "<group>"; };
-		A504CE6F22C46AAB00BF0315 /* ToolBarTabViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ToolBarTabViewController.xib; sourceTree = "<group>"; };
 		A504CE7322C46B3700BF0315 /* NSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSViewController.swift; sourceTree = "<group>"; };
 		A504D01C22C4987400BF0315 /* TPJSONGFormatterApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPJSONGFormatterApplication.swift; sourceTree = "<group>"; };
 		A504D02C22C4BA8000BF0315 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
@@ -116,6 +109,7 @@
 		A504D03022C4BB3100BF0315 /* GeneralVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralVC.swift; sourceTree = "<group>"; };
 		A504D03122C4BB3100BF0315 /* GeneralVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GeneralVC.xib; sourceTree = "<group>"; };
 		A5086F6B22C220D600488831 /* StatusBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarController.swift; sourceTree = "<group>"; };
+		A510028922CB3E5D00B2F7A8 /* MainMenu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
 		A5ECE05422BF9F800018F32C /* TPJSONFormatterExt.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TPJSONFormatterExt.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5ECE05622BF9F800018F32C /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		A5ECE05922BF9F800018F32C /* SourceEditorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceEditorExtension.swift; sourceTree = "<group>"; };
@@ -194,12 +188,12 @@
 			children = (
 				A504D01C22C4987400BF0315 /* TPJSONGFormatterApplication.swift */,
 				7BD97AEB2027246100B2D13A /* AppDelegate.swift */,
-				7BD97AED2027246100B2D13A /* ViewController.swift */,
+				A5037D6C22CD962200579336 /* Old */,
 				A504CE7222C46B1700BF0315 /* Extension */,
 				A5086F6A22C2209F00488831 /* ViewController */,
 				7BD97B1720274BBA00B2D13A /* Core */,
 				7BD97AEF2027246100B2D13A /* Assets.xcassets */,
-				7BD97AF12027246100B2D13A /* Main.storyboard */,
+				A510028922CB3E5D00B2F7A8 /* MainMenu.xib */,
 				7BD97AF42027246100B2D13A /* Info.plist */,
 				7BD97AF52027246100B2D13A /* TPJSONFormatter.entitlements */,
 			);
@@ -244,11 +238,16 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		A5037D6C22CD962200579336 /* Old */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Old;
+			sourceTree = "<group>";
+		};
 		A504CE6D22C46A3E00BF0315 /* VC */ = {
 			isa = PBXGroup;
 			children = (
-				A504CE6E22C46AAB00BF0315 /* ToolBarTabViewController.swift */,
-				A504CE6F22C46AAB00BF0315 /* ToolBarTabViewController.xib */,
 				A504D03022C4BB3100BF0315 /* GeneralVC.swift */,
 				A504D03122C4BB3100BF0315 /* GeneralVC.xib */,
 			);
@@ -451,9 +450,8 @@
 			files = (
 				A504D02F22C4BA8000BF0315 /* MainVC.xib in Resources */,
 				7BD97AF02027246100B2D13A /* Assets.xcassets in Resources */,
-				7BD97AF32027246100B2D13A /* Main.storyboard in Resources */,
 				A504D03322C4BB3100BF0315 /* GeneralVC.xib in Resources */,
-				A504CE7122C46AAB00BF0315 /* ToolBarTabViewController.xib in Resources */,
+				A510028A22CB3E5D00B2F7A8 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -600,12 +598,10 @@
 			files = (
 				A504CE7422C46B3700BF0315 /* NSViewController.swift in Sources */,
 				A504D03222C4BB3100BF0315 /* GeneralVC.swift in Sources */,
-				7BD97AEE2027246100B2D13A /* ViewController.swift in Sources */,
 				A5086F6C22C220D600488831 /* StatusBarController.swift in Sources */,
 				A5ECE07022BFCFBF0018F32C /* TPJsonProcessor.swift in Sources */,
 				A504D01D22C4987400BF0315 /* TPJSONGFormatterApplication.swift in Sources */,
 				7BD97AEC2027246100B2D13A /* AppDelegate.swift in Sources */,
-				A504CE7022C46AAB00BF0315 /* ToolBarTabViewController.swift in Sources */,
 				A5ECE06F22BFCFBF0018F32C /* TPJsonObject.swift in Sources */,
 				A5ECE07222BFCFBF0018F32C /* TPInstanceParser.swift in Sources */,
 				A5ECE07122BFCFBF0018F32C /* TPInstanceInfo.swift in Sources */,
@@ -663,17 +659,6 @@
 			targetProxy = A5ECE05F22BF9F800018F32C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		7BD97AF12027246100B2D13A /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7BD97AF22027246100B2D13A /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		7BD97B0C2027246100B2D13A /* Debug */ = {

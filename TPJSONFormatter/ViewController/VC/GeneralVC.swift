@@ -8,13 +8,15 @@
 
 import Cocoa
 
-class GeneralVC: NSViewController {
+class GeneralVC: NSViewController,NSTableViewDataSource {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
-        self.preferredContentSize = self.view.frame.size
-        self.view.frame = NSRect.init(x: 0, y: 0, width: 200, height: 400)
+//        self.preferredContentSize = self.view.frame.size
+//        self.view.frame = NSRect.init(x: 0, y: 0, width: 200, height: 400)
+
+
     }
     
 }

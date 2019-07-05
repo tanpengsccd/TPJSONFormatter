@@ -4,6 +4,8 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>NSMainNibFile</key>
+	<string>MainMenu</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIconFile</key>
@@ -27,6 +29,6 @@
 	<key>NSHumanReadableCopyright</key>
 	<string>Copyright © 2018年 谭鹏. All rights reserved.</string>
 	<key>NSPrincipalClass</key>
-	<string>$(PRODUCT_NAME:c99extidentifier).TPJSONGFormatterApplication</string>
+	<string>NSApplication</string>
 </dict>
 </plist>

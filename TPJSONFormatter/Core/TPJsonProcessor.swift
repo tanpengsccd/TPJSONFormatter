@@ -90,23 +90,22 @@ class TPJsonProcessor {
         }else{
             if  let string = value as? String {
                 //还可以再处理 bool ， int ， double
-                if ["true","false"] .contains(string){
+                if ["true","false"] .contains(string) && CheckOptions.isStringToBool.isCheck {
                     return  TPJsonModel.simpleValue(.bool)
                 }else if let double = Double(string){
-                    if floor(double) == double {
+                    if floor(double) == double && CheckOptions.isStringToInt.isCheck {
                         return TPJsonModel.simpleValue(.int)
-                    }else{
+                    }else if  CheckOptions.isStringToInt.isCheck{
                         return TPJsonModel.simpleValue(.double)
+                    }else {
+                        return TPJsonModel.simpleValue(.string)
                     }
-                    
                 }else{
                     return TPJsonModel.simpleValue(.string)
                 }
             }else{
                 return TPJsonModel.null
             }
-                
-            
         }
     }
 }
