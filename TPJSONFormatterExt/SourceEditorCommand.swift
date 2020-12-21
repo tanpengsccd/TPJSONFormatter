@@ -42,35 +42,35 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
     func pasteboardToCode(jsonData:Data) throws -> String {
         
         
-            //序列化为JOSN
-            let dict = try JSONSerialization.jsonObject(with: jsonData, options: JSONSerialization.ReadingOptions.mutableLeaves)
+        //序列化为JOSN
+        let dict = try JSONSerialization.jsonObject(with: jsonData, options: JSONSerialization.ReadingOptions.mutableLeaves)
         
-            #if DEBUG
-            print(dict)
-            #endif
-            //转换成JSON模型
-            
-            let  json = try TPJsonProcessor.processJson(value: dict)
-            #if DEBUG
-            print("---json---")
-            print(json)
-            #endif
-            //转成代码Code
-            let classInfo = try TPInstanceInfo.result(id: "0", name: "root", jsonValue: json)
-            #if DEBUG
-            print("---classInfo---")
-            print(classInfo)
-            #endif
-            let handyJson = TPInstanceParser.parse(instanceInfo: classInfo, classParserKind: .HandyJson, layersOfNested: 0, arrayLayersOfNested: 0)
-            print("---handyJSON---")
-            
-            //输出 文本
-            let str = handyJson.resultSring()
-            #if DEBUG
-            print(str)
-            #endif
-            return str
-
+        #if DEBUG
+        print(dict)
+        #endif
+        //转换成JSON模型
+        
+        let  json = try TPJsonProcessor.processJson(name: "root", value: dict)
+        #if DEBUG
+        print("---json---")
+        print(json)
+        #endif
+        //转成代码Code
+        let classInfo = try TPInstanceInfo.result(id: "0", name: "root", jsonValue: json)
+        #if DEBUG
+        print("---classInfo---")
+        print(classInfo)
+        #endif
+        let handyJson = TPInstanceParser.parse(instanceInfo: classInfo, classParserKind: .HandyJson, layersOfNested: 0, arrayLayersOfNested: 0)
+        print("---handyJSON---")
+        
+        //输出 文本
+        let str = handyJson.resultSring()
+        #if DEBUG
+        print(str)
+        #endif
+        return str
+        
         
     }
     

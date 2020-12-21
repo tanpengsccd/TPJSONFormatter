@@ -7,10 +7,10 @@
 //
 
 import Cocoa
-//json处理器
+//JSON处理器
 class TPJsonProcessor {
     enum TPProcessError:Error{
-        case arrayValueTypeNotSame(last:TPJsonModel ,this:TPJsonModel)
+        case arrayValueTypeNotSame(last:TPJSONModel ,this:TPJSONModel)
         case arrayValueCountZero
         case cantCastToString(Any)
         var msg:String{
@@ -26,87 +26,62 @@ class TPJsonProcessor {
             }
         }
     }
-    //json 转换成 模型 ⭐️⭐️⭐️⭐️⭐️
-    class func processJson(value:Any) throws -> TPJsonModel  {
+    //MARK:- json 转换成模型 ⭐️⭐️⭐️⭐️
+    
+    /// 处理JSON为Model
+    /// - Parameters:
+    ///   - name: 对象的名
+    ///   - value: 处理的对象即JSON
+    /// - Throws: 抛出的错误
+    /// - Returns: 模型
+    class func processJson(name:String,value:Any) throws -> TPJSONModel  {
+        ///尝试将value 变换为各种类型的值:
         
-        if let properties = value as? Dictionary<String, Any>{ // 如果能转为字典类型
-            var classes : [String : TPJsonModel] = [:]
-            try properties.forEach { (key , value) in
-                let jsonValue = try  processJson(value: value)
-//                    let classInfo = [key : jsonValue] //TPJsonObject.init(key: key, value: jsonValue)
-//                    classes.append(classInfo)
-                classes[key] = jsonValue
-                
-                
-            }
-            return TPJsonModel.properties(classes)
-        }else if let arrays = value as? Array<Any>{ //如果能转成 数组类型
-            var lastValue : TPJsonModel? // 保存上个 value，用来判断下个 value 的类型是否相同
-            for value in arrays { // 理论数组 内 elemtnt 大类型（enum三种）相同，不同需要报错
-                
-                let thisValue = try processJson(value: value)
-                if lastValue == nil{ //只是第一次触发
-                    lastValue = thisValue
-                }else{
-                    if thisValue == lastValue{ //判断节点类型是否相同
-                        switch (thisValue,lastValue){
-                        case ( .properties(let thisProperties) , .properties(var lastProperties)?): //都是属性 类型时 还需继续添加不同属性
-//                            thisProperties.forEach({ (thisProperty) in
-//                                if !lastProperties.contains(where: { $0.key == thisProperty.key && $0.value == thisProperty.value}){ // 上个属性集合不包含这个属性时，需要添加这个属性
-//                                    lastProperties[thisProperty.key] = thisProperty.value
-//                                }
-//                            })
-                            lastProperties.merge(thisProperties) { (lastP, _) -> TPJsonModel in lastP} //将属性集合合并
-//                            print(lastProperties)
-//                            print(lastValue)
-                            lastValue = TPJsonModel.properties(lastProperties)
-                        default:
-                            break
-                        }
-                        
-                        
-                    }else{
-                        throw  TPProcessError.arrayValueTypeNotSame(last: lastValue!, this: thisValue)
-                    }
-                }
-            }
+        //如果能变换为双精度
+        if let _ = value as? Double {
+            return .simpleModel(.number)
+//            if floor(double) == double {
+//                return TPJSONModel.simpleValue(.int)
+//            }else{
+//                return TPJSONModel.simpleValue(.double)
+//            }
             
-            if let result = lastValue{ //数组里有类型
-                return TPJsonModel.arrays(result)
-            }else{ //lastValue 为nil 时，不确定类型时 默认定为string
-                return TPJsonModel.arrays(TPJsonModel.simpleValue(.string))
-                
-            }
-            
-        }else if let double = value as? Double {
-            if floor(double) == double {
-                return TPJsonModel.simpleValue(.int)
-            }else{
-                return TPJsonModel.simpleValue(.double)
-            }
+        //如果能变换为boolean
         }else if let _ = value as? Bool{
-                return TPJsonModel.simpleValue(.bool)
+                return TPJSONModel.simpleModel(.boolean)
+        // 如果能转为字典类型
+        }else if let object = value as? Dictionary<String, Any>{
+            //处理value 中的子类型
+            let tuples = try object.map({($0.key,try processJson(name: $0.key, value: $0.value))})
+            return .objectModel(name:name,dictionary: .init(uniqueKeysWithValues:tuples))
+        //如果能转成 数组类型
+        }else if let array = value as? Array<Any>{
             
-        }else{
-            if  let string = value as? String {
-                //还可以再处理 bool ， int ， double
-                if ["true","false"] .contains(string){
-                    return  TPJsonModel.simpleValue(.bool)
-                }else if let double = Double(string){
-                    if floor(double) == double {
-                        return TPJsonModel.simpleValue(.int)
-                    }else{
-                        return TPJsonModel.simpleValue(.double)
-                    }
-                    
-                }else{
-                    return TPJsonModel.simpleValue(.string)
-                }
-            }else{
-                return TPJsonModel.null
+            let model = try array.reduce(TPJSONModel.null) { (result, element) -> TPJSONModel in
+                let model =  try processJson(name: name,value: element)
+                return result.merging(other: model)
             }
-                
             
+            return TPJSONModel.arrayModel(name: name, model: model)
+        }else{
+            if  let _ = value as? String {//一般都能转换为String，所以要放在最后处理
+                return TPJSONModel.simpleModel(.string)
+//                //还可以再处理 bool ， int ， double
+//                if ["true","false"] .contains(string){
+//                    return  TPJSONModel.simpleValue(.boolean)
+//                }else if let double = Double(string){
+//                    if floor(double) == double {
+//                        return TPJSONModel.simpleValue(.int)
+//                    }else{
+//                        return TPJSONModel.simpleValue(.double)
+//                    }
+//
+//                }else{
+//                    return TPJSONModel.simpleValue(.string)
+//                }
+            }else{
+                return TPJSONModel.null
+            }
         }
     }
 }

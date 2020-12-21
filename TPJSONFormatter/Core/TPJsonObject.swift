@@ -7,14 +7,74 @@
 //
 //JOSN 模型
 import Foundation
-indirect enum TPJsonModel:Comparable{
+indirect enum TPJSONModel{
    
+    
+    //json 值有三种类型
+    case simpleModel(TPJSONSimpleValue) //简单类型：string，bool，number
+    case objectModel (name:String,dictionary:[String:TPJSONModel]) //属性类型 {}
+    case arrayModel  (name:String,model     :TPJSONModel) //数组类型 []
+    case null
+    
+    ///将2个Model合并
+    func merging(other:TPJSONModel)->TPJSONModel{
+        switch (self,other){
+        case (.null,_)://又一个为空类型 自然 取 另一个other的类型
+            return other
+        case let (.simpleModel(selfSimple), .simpleModel(otherSimple)):
+            //简单类型合并时，需要都相同，否则就是string类型，因为string能保留值的所有细节
+            return selfSimple == otherSimple ? self : .simpleModel(.string)
+        case let (.objectModel(selfName,selfDict),.objectModel(_,otherDict)):
+            //object合并 其实就是字典合并
+            //思路：将 2个字典 合并，但是字典元素可能又是 相同的，所以这里就用递归再次处理 合并 字典
+            let newDict = selfDict.merging(otherDict, uniquingKeysWith: { this,that in
+                return this.merging(other:that)
+            })
+            return .objectModel(name: selfName, dictionary: newDict)
+        case let (.arrayModel(selfName,selfModel),.arrayModel(_,otherModel)):
+            //数组合并 直接递归处理
+            return .arrayModel(name: selfName, model: selfModel.merging(other: otherModel))
+        default:
+            //剩余不匹配的情况都用String 接收所有值
+            return .simpleModel(.string)
+        }
+    }
+    
+    var classTypeName:String {
+        switch self {
+        
+        case .simpleModel(let value):
+            return value.classTypeName
+        case .objectModel(let name, let model):
+            return name.capitalized
+        case .arrayModel(name: let name, let model):
+            return "Array<\(name)>"
+        case .null:
+            return "Any?"
+        }
+    }
+    ///嵌套的子 类型
+    var subClassDefine:String{
+        switch self{
+        
+        case .simpleModel,.null://简单类型没有子类型
+            return ""
+            //MARK:TODO 待完善
+        case .objectModel(name: let name,dictionary: let value):
+            return ""
+        case .arrayModel(name: let name, model: let value):
+            return ""
+        }
+    }
+}
+
+extension TPJSONModel:Comparable{ //可比较
     //判断节点类型是否相同
-    static func ==(lhs: TPJsonModel, rhs: TPJsonModel) -> Bool {
+    static func ==(lhs: TPJSONModel, rhs: TPJSONModel) -> Bool {
         switch (lhs , rhs) {
-        case ( .simpleValue , .simpleValue):
+        case ( .simpleModel , .simpleModel):
             return true
-        case (.properties(let lhsProperties) ,.properties(let rhsProperties)): //这里需要递归判断子properties 的类型
+        case (.objectModel(_,let lhsProperties) ,.objectModel(_,let rhsProperties)): //这里需要递归判断子properties 的类型
 //            lhsProperties.forEach({ (lhsProperty) in
 //                rhsProperties.forEach({ (rhsProperty) in
 //                    return lhsProperty == rhsProperty
@@ -28,16 +88,16 @@ indirect enum TPJsonModel:Comparable{
                 }
             }
             return true
-        case (.arrays ,.arrays):
+        case (.arrayModel ,.arrayModel):
             return true
         default:
             return false
         }
     }
-    static func <(lhs: TPJsonModel, rhs: TPJsonModel) -> Bool { //其实用不到
+    static func <(lhs: TPJSONModel, rhs: TPJSONModel) -> Bool { //其实用不到
         switch (lhs , rhs) {
 
-        case (.properties(let lhs) ,.properties(let rhs)):
+        case (.objectModel(_,let lhs) ,.objectModel(_,let rhs)):
             return lhs.count < rhs.count
    
         default:
@@ -45,16 +105,25 @@ indirect enum TPJsonModel:Comparable{
         }
 
     }
-    //json 值有三种类型
-    case simpleValue(TPJsonSimpleValue) //单纯的值，string，bool，double 等
-    case properties([String:TPJsonModel]) //属性类型 {}
-    case arrays(TPJsonModel) //数组类型 []
-    case null 
-}
-enum TPJsonSimpleValue:String {
-    case bool
-    case double
-    case int 
-    case string
 }
 
+enum TPJSONSimpleValue:String {
+    case boolean
+    case number
+    case string
+    var classTypeName:String{
+        switch self {
+        
+        case .boolean:
+            return "Bool"
+        case .number:
+            return "Double"
+        case .string:
+            return "String"
+        }
+    }
+}
+//JSON 定义
+//https://www.json.org/json-zh.html
+//APPLE 文档
+//https://developer.apple.com/swift/blog/?id=37

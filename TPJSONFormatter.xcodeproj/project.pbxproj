@@ -13,7 +13,6 @@
 		7BD97AF32027246100B2D13A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BD97AF12027246100B2D13A /* Main.storyboard */; };
 		7BD97AFF2027246100B2D13A /* TPJSONFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD97AFE2027246100B2D13A /* TPJSONFormatterTests.swift */; };
 		7BD97B0A2027246100B2D13A /* TPJSONFormatterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD97B092027246100B2D13A /* TPJSONFormatterUITests.swift */; };
-		7BD97B2E2030765100B2D13A /* String_extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD97B2D2030765100B2D13A /* String_extension.swift */; };
 		A5ECE05722BF9F800018F32C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5ECE05622BF9F800018F32C /* Cocoa.framework */; };
 		A5ECE05A22BF9F800018F32C /* SourceEditorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5ECE05922BF9F800018F32C /* SourceEditorExtension.swift */; };
 		A5ECE05C22BF9F800018F32C /* SourceEditorCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5ECE05B22BF9F800018F32C /* SourceEditorCommand.swift */; };
@@ -26,7 +25,6 @@
 		A5ECE07522BFCFC60018F32C /* TPJsonProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD97B1A2027741200B2D13A /* TPJsonProcessor.swift */; };
 		A5ECE07622BFCFC60018F32C /* TPInstanceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD97B1C202B3D7600B2D13A /* TPInstanceInfo.swift */; };
 		A5ECE07722BFCFC60018F32C /* TPInstanceParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD97B2A20306F9700B2D13A /* TPInstanceParser.swift */; };
-		A5ECE07822BFCFC60018F32C /* String_extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD97B2D2030765100B2D13A /* String_extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,7 +83,6 @@
 		7BD97B1A2027741200B2D13A /* TPJsonProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPJsonProcessor.swift; sourceTree = "<group>"; };
 		7BD97B1C202B3D7600B2D13A /* TPInstanceInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPInstanceInfo.swift; sourceTree = "<group>"; };
 		7BD97B2A20306F9700B2D13A /* TPInstanceParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPInstanceParser.swift; sourceTree = "<group>"; };
-		7BD97B2D2030765100B2D13A /* String_extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String_extension.swift; sourceTree = "<group>"; };
 		A5ECE05422BF9F800018F32C /* TPJSONFormatterExt.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TPJSONFormatterExt.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5ECE05622BF9F800018F32C /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		A5ECE05922BF9F800018F32C /* SourceEditorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceEditorExtension.swift; sourceTree = "<group>"; };
@@ -189,17 +186,8 @@
 				7BD97B1A2027741200B2D13A /* TPJsonProcessor.swift */,
 				7BD97B1C202B3D7600B2D13A /* TPInstanceInfo.swift */,
 				7BD97B2A20306F9700B2D13A /* TPInstanceParser.swift */,
-				7BD97B2C2030761E00B2D13A /* Extension */,
 			);
 			path = Core;
-			sourceTree = "<group>";
-		};
-		7BD97B2C2030761E00B2D13A /* Extension */ = {
-			isa = PBXGroup;
-			children = (
-				7BD97B2D2030765100B2D13A /* String_extension.swift */,
-			);
-			path = Extension;
 			sourceTree = "<group>";
 		};
 		A5ECE05522BF9F800018F32C /* Frameworks */ = {
@@ -303,7 +291,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1020;
-				LastUpgradeCheck = 1020;
+				LastUpgradeCheck = 1230;
 				ORGANIZATIONNAME = "谭鹏";
 				TargetAttributes = {
 					7BD97AE72027246100B2D13A = {
@@ -313,11 +301,13 @@
 					};
 					7BD97AF92027246100B2D13A = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 1230;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 7BD97AE72027246100B2D13A;
 					};
 					7BD97B042027246100B2D13A = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 1230;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 7BD97AE72027246100B2D13A;
 					};
@@ -392,7 +382,6 @@
 				A5ECE06F22BFCFBF0018F32C /* TPJsonObject.swift in Sources */,
 				A5ECE07222BFCFBF0018F32C /* TPInstanceParser.swift in Sources */,
 				A5ECE07122BFCFBF0018F32C /* TPInstanceInfo.swift in Sources */,
-				7BD97B2E2030765100B2D13A /* String_extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,7 +411,6 @@
 				A5ECE07722BFCFC60018F32C /* TPInstanceParser.swift in Sources */,
 				A5ECE07522BFCFC60018F32C /* TPJsonProcessor.swift in Sources */,
 				A5ECE05C22BF9F800018F32C /* SourceEditorCommand.swift in Sources */,
-				A5ECE07822BFCFC60018F32C /* String_extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -483,6 +471,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -542,6 +531,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -574,6 +564,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = TPJSONFormatter/TPJSONFormatter.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 69NY7TFEUP;
@@ -591,6 +582,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = TPJSONFormatter/TPJSONFormatter.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 69NY7TFEUP;
@@ -614,7 +606,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tanpengcd.TPJSONFormatterTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TPJSONFormatter.app/Contents/MacOS/TPJSONFormatter";
 			};
 			name = Debug;
@@ -631,7 +623,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tanpengcd.TPJSONFormatterTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TPJSONFormatter.app/Contents/MacOS/TPJSONFormatter";
 			};
 			name = Release;
@@ -647,7 +639,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tanpengcd.TPJSONFormatterUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TEST_TARGET_NAME = TPJSONFormatter;
 			};
 			name = Debug;
@@ -663,7 +655,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tanpengcd.TPJSONFormatterUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TEST_TARGET_NAME = TPJSONFormatter;
 			};
 			name = Release;
@@ -675,6 +667,7 @@
 				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CODE_SIGN_ENTITLEMENTS = TPJSONFormatterExt/TPJSONFormatterExt.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 69NY7TFEUP;
@@ -697,6 +690,7 @@
 				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CODE_SIGN_ENTITLEMENTS = TPJSONFormatterExt/TPJSONFormatterExt.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 69NY7TFEUP;
