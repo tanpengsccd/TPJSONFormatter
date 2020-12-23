@@ -37,26 +37,6 @@
          </BuildableReference>
       </MacroExpansion>
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "7BD97AF92027246100B2D13A"
-               BuildableName = "TPJSONFormatterTests.xctest"
-               BlueprintName = "TPJSONFormatterTests"
-               ReferencedContainer = "container:TPJSONFormatter.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "7BD97B042027246100B2D13A"
-               BuildableName = "TPJSONFormatterUITests.xctest"
-               BlueprintName = "TPJSONFormatterUITests"
-               ReferencedContainer = "container:TPJSONFormatter.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
