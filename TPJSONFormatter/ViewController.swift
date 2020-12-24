@@ -40,10 +40,10 @@ class ViewController: NSViewController,NSTextViewDelegate {
                     "nullArray":[],
                     "array": [
                     {
-                        "stringA":"string"
+                        "stringA":"stringA"
                     },
                     {
-                        "stringB":"string",
+        
                         "stringC":"string"
                     }
                     ],
@@ -52,6 +52,7 @@ class ViewController: NSViewController,NSTextViewDelegate {
             }
         }
         """
+        
         #endif
 
     }
@@ -75,7 +76,7 @@ class ViewController: NSViewController,NSTextViewDelegate {
                 print(dict)
                 //转换成JSON模型
                 
-                let  json = try TPJsonProcessor.processJson(value: dict)
+                let  json = try TPJsonProcessor.processJson(name:"root",value: dict)
                 print("---json---")
                 print(json)
                 //转成代码Code

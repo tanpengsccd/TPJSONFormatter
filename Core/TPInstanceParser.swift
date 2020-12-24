@@ -50,11 +50,11 @@ class TPInstanceParser{
 
 
         case .simple(let identifier, let name, let simpleInstance):
-            let variableDeclare = "\(lineFeed)var \((name ?? identifier)) : \(simpleInstance.rawValue.capitalizingFirstLetter())\(isVariableOptional ? "?" : "()")"
+            let variableDeclare = "\(lineFeed)var \((name ?? identifier)) : \(simpleInstance.rawValue.capitalized)\(isVariableOptional ? "?" : "()")"
             return TPInstanceParserStrings.init(classDefines: nil, variableDeclare: variableDeclare, function: nil)
         case .recombination(let identifier, let name, let subInstances):
             let classDefines:String = {
-                let str = lineFeed + "class " + (name ?? identifier).capitalizingFirstLetter() + arr_suffix + classParserKind.classDefinesSuffix()
+                let str = lineFeed + "class " + (name ?? identifier).capitalized + arr_suffix + classParserKind.classDefinesSuffix()
                 var subClassDefines = ""
                 var subVariableDeclare = ""
                 var subFunction = lineFeed + "\t" + "required init(){}"
@@ -67,7 +67,7 @@ class TPInstanceParser{
                 
                 return str + "{" + subClassDefines + subVariableDeclare + subFunction + lineFeed + "}"
             }()
-            let variableDeclare = "\(lineFeed)var \((name ?? identifier)) : \((name ?? identifier).capitalizingFirstLetter())\(isVariableOptional ? "?" : "()")"
+            let variableDeclare = "\(lineFeed)var \((name ?? identifier)) : \((name ?? identifier).capitalized)\(isVariableOptional ? "?" : "()")"
             let function = ""//lineFeed + "required init(){}"
             
             
@@ -78,7 +78,7 @@ class TPInstanceParser{
             
             let classDefines:String = {
                 
-                var typealisStr = lineFeed + "typealias " + (name ?? identifier).capitalizingFirstLetter() + "\(arr_suffix) = "
+                var typealisStr = lineFeed + "typealias " + (name ?? identifier).capitalized + "\(arr_suffix) = "
 
                 var subClassDefines = ""
                 var subVariableDeclare = ""
@@ -101,7 +101,7 @@ class TPInstanceParser{
                 }
                 return typealisStr + subClassDefines + subVariableDeclare + subFunction
             }()
-            let variableDeclare = "\(lineFeed)var \((name ?? identifier)) : \((name ?? identifier).capitalizingFirstLetter())\(arr_suffix)\(isVariableOptional ? "?" : "()")"
+            let variableDeclare = "\(lineFeed)var \((name ?? identifier)) : \((name ?? identifier).capitalized)\(arr_suffix)\(isVariableOptional ? "?" : "()")"
             
             return TPInstanceParserStrings.init(classDefines: classDefines, variableDeclare: variableDeclare, function: nil)
         case .null(let identifier, let name): //null处理为 optinal String 类型

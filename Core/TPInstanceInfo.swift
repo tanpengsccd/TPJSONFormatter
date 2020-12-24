@@ -10,7 +10,7 @@ import Foundation
 //代码类型模型 如HandyJson
 indirect enum TPInstanceInfo { //
     
-    typealias  TPSimpleClassKind = TPJsonSimpleValue
+    typealias  TPSimpleClassKind = TPJSONSimpleValue
 
     
     case simple(id:String,name:String?,simpleInstance:TPSimpleClassKind) //简单类型
@@ -35,11 +35,11 @@ indirect enum TPInstanceInfo { //
         switch self {
             
         case .simple(let id, let name, let simpleInstance):
-            return simpleInstance.rawValue.capitalizingFirstLetter()
+            return simpleInstance.rawValue.capitalized
         case .recombination(let id, let name, let subInstances):
-            return (name ?? id).capitalizingFirstLetter()
+            return (name ?? id).capitalized
         case .array(let id, let name, let elementInstance):
-            return (name ?? id).capitalizingFirstLetter()
+            return (name ?? id).capitalized
         case .null(let id, let name):
             return "String"
         }
@@ -59,12 +59,12 @@ indirect enum TPInstanceInfo { //
     ///   - isArrayInitial: 数组节点是否初始化
     /// - Returns: 返回
     /// - Throws: 返回异常
-    static func  result(id:String  , name:String?, jsonValue:TPJsonModel   ) throws -> TPInstanceInfo {
+    static func  result(id:String  , name:String?, jsonValue:TPJSONModel   ) throws -> TPInstanceInfo {
         
             var childId = 0
             switch jsonValue {
                 
-            case .simpleValue(let value):
+            case .simpleModel(let value):
                 
                 return TPInstanceInfo.simple(id: id, name: name, simpleInstance: value)
 //                switch value{
@@ -79,7 +79,7 @@ indirect enum TPInstanceInfo { //
 //                    return  TPInstanceInfo.simple(.string)
 //
 //                }
-            case .properties(let properties):
+            case .objectModel(_,let properties):
                 let instanceInfos = try properties.map({ (jsonObject) -> TPInstanceInfo in
                     
                     let classInfo = try result(id: "\(id)_\(childId)", name: jsonObject.key, jsonValue: jsonObject.value)
@@ -88,7 +88,7 @@ indirect enum TPInstanceInfo { //
                 })
                 return TPInstanceInfo.recombination(id: id, name: name, subInstances: instanceInfos)
                     //TPClassInfo.init(name: name, id: id, isOptional: nil, properties: TPClassInfo.TPClassKind.recombinationClassKind(recombination: TPClassInfo.TPClassKind.RecombinationClassKind.customClass(classes: classInfos)))
-            case .arrays(let jsonModel):
+            case .arrayModel(_,let jsonModel):
                 let instanceInfo = try result(id: "\(id)_\(childId)", name: name, jsonValue: jsonModel )
                 return TPInstanceInfo.array(id: id, name: name, elementInstance: instanceInfo)
                     //TPClassInfo.init(name: name, id: id, isOptional: !isArrayInitial, properties: TPClassInfo.TPClassKind.recombinationClassKind(recombination: TPClassInfo.TPClassKind.RecombinationClassKind.array(arrayClass: classInfo)))

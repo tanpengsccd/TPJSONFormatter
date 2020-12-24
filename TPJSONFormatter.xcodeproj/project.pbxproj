@@ -11,33 +11,27 @@
 		7BD97AEE2027246100B2D13A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD97AED2027246100B2D13A /* ViewController.swift */; };
 		7BD97AF02027246100B2D13A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BD97AEF2027246100B2D13A /* Assets.xcassets */; };
 		7BD97AF32027246100B2D13A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BD97AF12027246100B2D13A /* Main.storyboard */; };
-		7BD97AFF2027246100B2D13A /* TPJSONFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD97AFE2027246100B2D13A /* TPJSONFormatterTests.swift */; };
-		7BD97B0A2027246100B2D13A /* TPJSONFormatterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD97B092027246100B2D13A /* TPJSONFormatterUITests.swift */; };
-		7BD97B1920274BE400B2D13A /* TPJsonObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD97B1820274BE400B2D13A /* TPJsonObject.swift */; };
-		7BD97B1B2027741200B2D13A /* TPJsonProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD97B1A2027741200B2D13A /* TPJsonProcessor.swift */; };
-		7BD97B1D202B3D7600B2D13A /* TPInstanceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD97B1C202B3D7600B2D13A /* TPInstanceInfo.swift */; };
-		7BD97B2B20306F9700B2D13A /* TPInstanceParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD97B2A20306F9700B2D13A /* TPInstanceParser.swift */; };
-		7BD97B2E2030765100B2D13A /* String_extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD97B2D2030765100B2D13A /* String_extension.swift */; };
-		A507E94522896F2900EF7D98 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A507E94422896F2900EF7D98 /* Cocoa.framework */; };
-		A507E94822896F2900EF7D98 /* SourceEditorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A507E94722896F2900EF7D98 /* SourceEditorExtension.swift */; };
-		A507E94A22896F2900EF7D98 /* SourceEditorCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = A507E94922896F2900EF7D98 /* SourceEditorCommand.swift */; };
-		A507E94F22896F2900EF7D98 /* TPJSONFormatter_Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A507E94222896F2900EF7D98 /* TPJSONFormatter_Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A5ECE05722BF9F800018F32C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5ECE05622BF9F800018F32C /* Cocoa.framework */; };
+		A5ECE05A22BF9F800018F32C /* SourceEditorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5ECE05922BF9F800018F32C /* SourceEditorExtension.swift */; };
+		A5ECE05C22BF9F800018F32C /* SourceEditorCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5ECE05B22BF9F800018F32C /* SourceEditorCommand.swift */; };
+		A5ECE06122BF9F800018F32C /* TPJSONFormatterExt.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A5ECE05422BF9F800018F32C /* TPJSONFormatterExt.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A5ECE06F22BFCFBF0018F32C /* TPJsonObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD97B1820274BE400B2D13A /* TPJsonObject.swift */; };
+		A5ECE07022BFCFBF0018F32C /* TPJsonProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD97B1A2027741200B2D13A /* TPJsonProcessor.swift */; };
+		A5ECE07122BFCFBF0018F32C /* TPInstanceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD97B1C202B3D7600B2D13A /* TPInstanceInfo.swift */; };
+		A5ECE07222BFCFBF0018F32C /* TPInstanceParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD97B2A20306F9700B2D13A /* TPInstanceParser.swift */; };
+		A5ECE07422BFCFC60018F32C /* TPJsonObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD97B1820274BE400B2D13A /* TPJsonObject.swift */; };
+		A5ECE07522BFCFC60018F32C /* TPJsonProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD97B1A2027741200B2D13A /* TPJsonProcessor.swift */; };
+		A5ECE07622BFCFC60018F32C /* TPInstanceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD97B1C202B3D7600B2D13A /* TPInstanceInfo.swift */; };
+		A5ECE07722BFCFC60018F32C /* TPInstanceParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD97B2A20306F9700B2D13A /* TPInstanceParser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		7BD97AFB2027246100B2D13A /* PBXContainerItemProxy */ = {
+		A5ECE05F22BF9F800018F32C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 7BD97AE02027246100B2D13A /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 7BD97AE72027246100B2D13A;
-			remoteInfo = TPJSONFormatter;
-		};
-		7BD97B062027246100B2D13A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 7BD97AE02027246100B2D13A /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 7BD97AE72027246100B2D13A;
-			remoteInfo = TPJSONFormatter;
+			remoteGlobalIDString = A5ECE05322BF9F800018F32C;
+			remoteInfo = TPJSONFormatterExt;
 		};
 		A507E94D22896F2900EF7D98 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -49,13 +43,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		A507E95322896F2900EF7D98 /* Embed App Extensions */ = {
+		A5ECE06522BF9F800018F32C /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				A507E94F22896F2900EF7D98 /* TPJSONFormatter_Extension.appex in Embed App Extensions */,
+				A5ECE06122BF9F800018F32C /* TPJSONFormatterExt.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -70,23 +64,16 @@
 		7BD97AF22027246100B2D13A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7BD97AF42027246100B2D13A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7BD97AF52027246100B2D13A /* TPJSONFormatter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TPJSONFormatter.entitlements; sourceTree = "<group>"; };
-		7BD97AFA2027246100B2D13A /* TPJSONFormatterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TPJSONFormatterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		7BD97AFE2027246100B2D13A /* TPJSONFormatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPJSONFormatterTests.swift; sourceTree = "<group>"; };
-		7BD97B002027246100B2D13A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7BD97B052027246100B2D13A /* TPJSONFormatterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TPJSONFormatterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		7BD97B092027246100B2D13A /* TPJSONFormatterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPJSONFormatterUITests.swift; sourceTree = "<group>"; };
-		7BD97B0B2027246100B2D13A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7BD97B1820274BE400B2D13A /* TPJsonObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPJsonObject.swift; sourceTree = "<group>"; };
 		7BD97B1A2027741200B2D13A /* TPJsonProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPJsonProcessor.swift; sourceTree = "<group>"; };
 		7BD97B1C202B3D7600B2D13A /* TPInstanceInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPInstanceInfo.swift; sourceTree = "<group>"; };
 		7BD97B2A20306F9700B2D13A /* TPInstanceParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPInstanceParser.swift; sourceTree = "<group>"; };
-		7BD97B2D2030765100B2D13A /* String_extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String_extension.swift; sourceTree = "<group>"; };
-		A507E94222896F2900EF7D98 /* TPJSONFormatter_Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TPJSONFormatter_Extension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		A507E94422896F2900EF7D98 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
-		A507E94722896F2900EF7D98 /* SourceEditorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceEditorExtension.swift; sourceTree = "<group>"; };
-		A507E94922896F2900EF7D98 /* SourceEditorCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceEditorCommand.swift; sourceTree = "<group>"; };
-		A507E94B22896F2900EF7D98 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A507E94C22896F2900EF7D98 /* TPJSONFormatter_Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TPJSONFormatter_Extension.entitlements; sourceTree = "<group>"; };
+		A5ECE05422BF9F800018F32C /* TPJSONFormatterExt.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TPJSONFormatterExt.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		A5ECE05622BF9F800018F32C /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		A5ECE05922BF9F800018F32C /* SourceEditorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceEditorExtension.swift; sourceTree = "<group>"; };
+		A5ECE05B22BF9F800018F32C /* SourceEditorCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceEditorCommand.swift; sourceTree = "<group>"; };
+		A5ECE05D22BF9F800018F32C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A5ECE05E22BF9F800018F32C /* TPJSONFormatterExt.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TPJSONFormatterExt.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,17 +84,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7BD97AF72027246100B2D13A /* Frameworks */ = {
+		A5ECE05122BF9F800018F32C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		7BD97B022027246100B2D13A /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				A5ECE05722BF9F800018F32C /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,11 +106,10 @@
 		7BD97ADF2027246100B2D13A = {
 			isa = PBXGroup;
 			children = (
+				7BD97B1720274BBA00B2D13A /* Core */,
 				7BD97AEA2027246100B2D13A /* TPJSONFormatter */,
-				7BD97AFD2027246100B2D13A /* TPJSONFormatterTests */,
-				7BD97B082027246100B2D13A /* TPJSONFormatterUITests */,
-				A507E94622896F2900EF7D98 /* TPJSONFormatter_Extension */,
-				A507E94322896F2900EF7D98 /* Frameworks */,
+				A5ECE05822BF9F800018F32C /* TPJSONFormatterExt */,
+				A5ECE05522BF9F800018F32C /* Frameworks */,
 				7BD97AE92027246100B2D13A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -138,9 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				7BD97AE82027246100B2D13A /* TPJSONFormatter.app */,
-				7BD97AFA2027246100B2D13A /* TPJSONFormatterTests.xctest */,
-				7BD97B052027246100B2D13A /* TPJSONFormatterUITests.xctest */,
-				A507E94222896F2900EF7D98 /* TPJSONFormatter_Extension.appex */,
+				A5ECE05422BF9F800018F32C /* TPJSONFormatterExt.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -150,7 +128,6 @@
 			children = (
 				7BD97AEB2027246100B2D13A /* AppDelegate.swift */,
 				7BD97AED2027246100B2D13A /* ViewController.swift */,
-				7BD97B1720274BBA00B2D13A /* Main */,
 				7BD97AEF2027246100B2D13A /* Assets.xcassets */,
 				7BD97AF12027246100B2D13A /* Main.storyboard */,
 				7BD97AF42027246100B2D13A /* Info.plist */,
@@ -159,42 +136,34 @@
 			path = TPJSONFormatter;
 			sourceTree = "<group>";
 		};
-		7BD97AFD2027246100B2D13A /* TPJSONFormatterTests */ = {
-			isa = PBXGroup;
-			children = (
-				7BD97AFE2027246100B2D13A /* TPJSONFormatterTests.swift */,
-				7BD97B002027246100B2D13A /* Info.plist */,
-			);
-			path = TPJSONFormatterTests;
-			sourceTree = "<group>";
-		};
-		7BD97B082027246100B2D13A /* TPJSONFormatterUITests */ = {
-			isa = PBXGroup;
-			children = (
-				7BD97B092027246100B2D13A /* TPJSONFormatterUITests.swift */,
-				7BD97B0B2027246100B2D13A /* Info.plist */,
-			);
-			path = TPJSONFormatterUITests;
-			sourceTree = "<group>";
-		};
-		7BD97B1720274BBA00B2D13A /* Main */ = {
+		7BD97B1720274BBA00B2D13A /* Core */ = {
 			isa = PBXGroup;
 			children = (
 				7BD97B1820274BE400B2D13A /* TPJsonObject.swift */,
 				7BD97B1A2027741200B2D13A /* TPJsonProcessor.swift */,
 				7BD97B1C202B3D7600B2D13A /* TPInstanceInfo.swift */,
 				7BD97B2A20306F9700B2D13A /* TPInstanceParser.swift */,
-				7BD97B2C2030761E00B2D13A /* Extension */,
 			);
-			path = Main;
+			path = Core;
 			sourceTree = "<group>";
 		};
-		7BD97B2C2030761E00B2D13A /* Extension */ = {
+		A5ECE05522BF9F800018F32C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				7BD97B2D2030765100B2D13A /* String_extension.swift */,
+				A5ECE05622BF9F800018F32C /* Cocoa.framework */,
 			);
-			path = Extension;
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A5ECE05822BF9F800018F32C /* TPJSONFormatterExt */ = {
+			isa = PBXGroup;
+			children = (
+				A5ECE05922BF9F800018F32C /* SourceEditorExtension.swift */,
+				A5ECE05B22BF9F800018F32C /* SourceEditorCommand.swift */,
+				A5ECE05D22BF9F800018F32C /* Info.plist */,
+				A5ECE05E22BF9F800018F32C /* TPJSONFormatterExt.entitlements */,
+			);
+			path = TPJSONFormatterExt;
 			sourceTree = "<group>";
 		};
 		A507E94322896F2900EF7D98 /* Frameworks */ = {
@@ -226,53 +195,34 @@
 				7BD97AE42027246100B2D13A /* Sources */,
 				7BD97AE52027246100B2D13A /* Frameworks */,
 				7BD97AE62027246100B2D13A /* Resources */,
-				A507E95322896F2900EF7D98 /* Embed App Extensions */,
+				A5ECE06522BF9F800018F32C /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				A507E94E22896F2900EF7D98 /* PBXTargetDependency */,
+				A5ECE06022BF9F800018F32C /* PBXTargetDependency */,
 			);
 			name = TPJSONFormatter;
 			productName = TPJSONFormatter;
 			productReference = 7BD97AE82027246100B2D13A /* TPJSONFormatter.app */;
 			productType = "com.apple.product-type.application";
 		};
-		7BD97AF92027246100B2D13A /* TPJSONFormatterTests */ = {
+		A5ECE05322BF9F800018F32C /* TPJSONFormatterExt */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7BD97B112027246100B2D13A /* Build configuration list for PBXNativeTarget "TPJSONFormatterTests" */;
+			buildConfigurationList = A5ECE06222BF9F800018F32C /* Build configuration list for PBXNativeTarget "TPJSONFormatterExt" */;
 			buildPhases = (
-				7BD97AF62027246100B2D13A /* Sources */,
-				7BD97AF72027246100B2D13A /* Frameworks */,
-				7BD97AF82027246100B2D13A /* Resources */,
+				A5ECE05022BF9F800018F32C /* Sources */,
+				A5ECE05122BF9F800018F32C /* Frameworks */,
+				A5ECE05222BF9F800018F32C /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				7BD97AFC2027246100B2D13A /* PBXTargetDependency */,
 			);
-			name = TPJSONFormatterTests;
-			productName = TPJSONFormatterTests;
-			productReference = 7BD97AFA2027246100B2D13A /* TPJSONFormatterTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		7BD97B042027246100B2D13A /* TPJSONFormatterUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 7BD97B142027246100B2D13A /* Build configuration list for PBXNativeTarget "TPJSONFormatterUITests" */;
-			buildPhases = (
-				7BD97B012027246100B2D13A /* Sources */,
-				7BD97B022027246100B2D13A /* Frameworks */,
-				7BD97B032027246100B2D13A /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				7BD97B072027246100B2D13A /* PBXTargetDependency */,
-			);
-			name = TPJSONFormatterUITests;
-			productName = TPJSONFormatterUITests;
-			productReference = 7BD97B052027246100B2D13A /* TPJSONFormatterUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
+			name = TPJSONFormatterExt;
+			productName = TPJSONFormatterExt;
+			productReference = A5ECE05422BF9F800018F32C /* TPJSONFormatterExt.appex */;
+			productType = "com.apple.product-type.xcode-extension";
 		};
 		A507E94122896F2900EF7D98 /* TPJSONFormatter_Extension */ = {
 			isa = PBXNativeTarget;
@@ -298,22 +248,17 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1020;
-				LastUpgradeCheck = 1020;
+				LastUpgradeCheck = 1230;
 				ORGANIZATIONNAME = "谭鹏";
 				TargetAttributes = {
 					7BD97AE72027246100B2D13A = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 					};
-					7BD97AF92027246100B2D13A = {
-						CreatedOnToolsVersion = 9.2;
+					A5ECE05322BF9F800018F32C = {
+						CreatedOnToolsVersion = 10.2.1;
 						ProvisioningStyle = Automatic;
-						TestTargetID = 7BD97AE72027246100B2D13A;
-					};
-					7BD97B042027246100B2D13A = {
-						CreatedOnToolsVersion = 9.2;
-						ProvisioningStyle = Automatic;
-						TestTargetID = 7BD97AE72027246100B2D13A;
 					};
 					A507E94122896F2900EF7D98 = {
 						CreatedOnToolsVersion = 10.2.1;
@@ -335,9 +280,7 @@
 			projectRoot = "";
 			targets = (
 				7BD97AE72027246100B2D13A /* TPJSONFormatter */,
-				7BD97AF92027246100B2D13A /* TPJSONFormatterTests */,
-				7BD97B042027246100B2D13A /* TPJSONFormatterUITests */,
-				A507E94122896F2900EF7D98 /* TPJSONFormatter_Extension */,
+				A5ECE05322BF9F800018F32C /* TPJSONFormatterExt */,
 			);
 		};
 /* End PBXProject section */
@@ -352,14 +295,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7BD97AF82027246100B2D13A /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		7BD97B032027246100B2D13A /* Resources */ = {
+		A5ECE05222BF9F800018F32C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -381,28 +317,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				7BD97AEE2027246100B2D13A /* ViewController.swift in Sources */,
-				7BD97B1920274BE400B2D13A /* TPJsonObject.swift in Sources */,
-				7BD97B1B2027741200B2D13A /* TPJsonProcessor.swift in Sources */,
-				7BD97B2B20306F9700B2D13A /* TPInstanceParser.swift in Sources */,
-				7BD97B1D202B3D7600B2D13A /* TPInstanceInfo.swift in Sources */,
+				A5ECE07022BFCFBF0018F32C /* TPJsonProcessor.swift in Sources */,
 				7BD97AEC2027246100B2D13A /* AppDelegate.swift in Sources */,
-				7BD97B2E2030765100B2D13A /* String_extension.swift in Sources */,
+				A5ECE06F22BFCFBF0018F32C /* TPJsonObject.swift in Sources */,
+				A5ECE07222BFCFBF0018F32C /* TPInstanceParser.swift in Sources */,
+				A5ECE07122BFCFBF0018F32C /* TPInstanceInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7BD97AF62027246100B2D13A /* Sources */ = {
+		A5ECE05022BF9F800018F32C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7BD97AFF2027246100B2D13A /* TPJSONFormatterTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		7BD97B012027246100B2D13A /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				7BD97B0A2027246100B2D13A /* TPJSONFormatterUITests.swift in Sources */,
+				A5ECE07422BFCFC60018F32C /* TPJsonObject.swift in Sources */,
+				A5ECE07622BFCFC60018F32C /* TPInstanceInfo.swift in Sources */,
+				A5ECE05A22BF9F800018F32C /* SourceEditorExtension.swift in Sources */,
+				A5ECE07722BFCFC60018F32C /* TPInstanceParser.swift in Sources */,
+				A5ECE07522BFCFC60018F32C /* TPJsonProcessor.swift in Sources */,
+				A5ECE05C22BF9F800018F32C /* SourceEditorCommand.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -418,15 +350,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		7BD97AFC2027246100B2D13A /* PBXTargetDependency */ = {
+		A5ECE06022BF9F800018F32C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 7BD97AE72027246100B2D13A /* TPJSONFormatter */;
-			targetProxy = 7BD97AFB2027246100B2D13A /* PBXContainerItemProxy */;
-		};
-		7BD97B072027246100B2D13A /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 7BD97AE72027246100B2D13A /* TPJSONFormatter */;
-			targetProxy = 7BD97B062027246100B2D13A /* PBXContainerItemProxy */;
+			target = A5ECE05322BF9F800018F32C /* TPJSONFormatterExt */;
+			targetProxy = A5ECE05F22BF9F800018F32C /* PBXContainerItemProxy */;
 		};
 		A507E94E22896F2900EF7D98 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -472,6 +399,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -531,6 +459,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -563,6 +492,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = TPJSONFormatter/TPJSONFormatter.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 69NY7TFEUP;
@@ -570,7 +500,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tanpengcd.TPJSONFormatter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -580,6 +510,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = TPJSONFormatter/TPJSONFormatter.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 69NY7TFEUP;
@@ -587,73 +518,52 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tanpengcd.TPJSONFormatter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
-		7BD97B122027246100B2D13A /* Debug */ = {
+		A5ECE06322BF9F800018F32C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CODE_SIGN_ENTITLEMENTS = TPJSONFormatterExt/TPJSONFormatterExt.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 69NY7TFEUP;
-				INFOPLIST_FILE = TPJSONFormatterTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.tanpengcd.TPJSONFormatterTests;
+				INFOPLIST_FILE = TPJSONFormatterExt/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tanpengcd.TPJSONFormatter.TPJSONFormatterExt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TPJSONFormatter.app/Contents/MacOS/TPJSONFormatter";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
-		7BD97B132027246100B2D13A /* Release */ = {
+		A5ECE06422BF9F800018F32C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CODE_SIGN_ENTITLEMENTS = TPJSONFormatterExt/TPJSONFormatterExt.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 69NY7TFEUP;
-				INFOPLIST_FILE = TPJSONFormatterTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.tanpengcd.TPJSONFormatterTests;
+				INFOPLIST_FILE = TPJSONFormatterExt/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tanpengcd.TPJSONFormatter.TPJSONFormatterExt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TPJSONFormatter.app/Contents/MacOS/TPJSONFormatter";
-			};
-			name = Release;
-		};
-		7BD97B152027246100B2D13A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 69NY7TFEUP;
-				INFOPLIST_FILE = TPJSONFormatterUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.tanpengcd.TPJSONFormatterUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TEST_TARGET_NAME = TPJSONFormatter;
-			};
-			name = Debug;
-		};
-		7BD97B162027246100B2D13A /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 69NY7TFEUP;
-				INFOPLIST_FILE = TPJSONFormatterUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.tanpengcd.TPJSONFormatterUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TEST_TARGET_NAME = TPJSONFormatter;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -721,20 +631,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7BD97B112027246100B2D13A /* Build configuration list for PBXNativeTarget "TPJSONFormatterTests" */ = {
+		A5ECE06222BF9F800018F32C /* Build configuration list for PBXNativeTarget "TPJSONFormatterExt" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				7BD97B122027246100B2D13A /* Debug */,
-				7BD97B132027246100B2D13A /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		7BD97B142027246100B2D13A /* Build configuration list for PBXNativeTarget "TPJSONFormatterUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				7BD97B152027246100B2D13A /* Debug */,
-				7BD97B162027246100B2D13A /* Release */,
+				A5ECE06322BF9F800018F32C /* Debug */,
+				A5ECE06422BF9F800018F32C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
